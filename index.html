@@ -1,0 +1,2099 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShoeBeeDoo — Premium Footwear Store</title>
+  <link rel="icon" type="image/png" href="lebron_21_orange_v1_1774746209076.png">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Leaflet.js for interactive map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body>
+  <div class="stage">
+
+    <!-- ══ APP CONTAINER ══ -->
+    <div class="app-container">
+      <div class="screens">
+
+        <!-- ────────────────────────────────────
+  SCREEN 1 · LOGIN
+──────────────────────────────────────-->
+        <div class="screen active" id="s-login">
+
+          <div class="login-logo-wrap">
+            <img src="lebron_21_orange_v1_1774746209076.png"
+              style="width:120px;height:120px;margin-bottom:24px;border-radius:24px;" alt="Logo">
+            <div class="logo-name">Shoe<span>Bee</span>Doo</div>
+            <div class="logo-sub">Step into your style</div>
+          </div>
+          <div class="login-body">
+            <div class="shopee-guarantee-banner">
+              <div class="guarantee-info">
+                <span class="guarantee-ico">🔒</span>
+                <span>ShoeBeeDoo Guarantee • Secure Payment</span>
+              </div>
+            </div>
+            <label class="inp-lbl">Phone Number</label>
+            <input class="inp" type="tel" placeholder="+63 900 000 0000" id="phone-inp" />
+            <label class="inp-lbl">OTP Code</label>
+            <input class="inp" type="text" placeholder="Enter 6-digit OTP" maxlength="6" />
+            <div class="otp-hint" onclick="toast('📱 OTP sent to your number!')">Resend OTP →</div>
+            <div class="div-or">or continue with</div>
+            <div class="soc-row">
+              <button class="soc-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24">
+                  <path
+                    d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                    fill="#4285F4" />
+                  <path
+                    d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                    fill="#34A853" />
+                  <path
+                    d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                    fill="#FBBC05" />
+                  <path
+                    d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                    fill="#EA4335" />
+                </svg>
+                Google
+              </button>
+              <button class="soc-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#1877F2">
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                </svg>
+                Facebook
+              </button>
+            </div>
+            <button class="btn-acc" onclick="go('s-home')">Log In →</button>
+            <div class="login-foot" style="margin-top:12px">New to Shoe<span style="color:var(--acc)">Bee</span>Doo? <a
+                href="#" onclick="toast('📝 Opening sign up...')">Sign Up Free</a></div>
+          </div>
+        </div>
+
+        <!-- ────────────────────────────────────
+  SCREEN 2 · HOME
+──────────────────────────────────────-->
+        <div class="screen" id="s-home">
+
+          <!-- Top Nav -->
+          <div class="web-top-nav">
+            <div class="hdr-loc">
+              <div class="brand-header">
+                <img src="lebron_21_orange_v1_1774746209076.png" style="width:38px;height:38px;border-radius:10px"
+                  alt="Logo">
+                <div class="logo-name" style="font-size:22px;margin:0;margin-left:6px">Shoe<span>Bee</span>Doo</div>
+              </div>
+              <div class="hdr-loc-val"
+                style="margin-top:6px;font-size:12px;color:var(--txt3);cursor:pointer;transition:opacity 0.2s"
+                onclick="go('s-map')" onmousedown="this.style.opacity='0.6'" onmouseup="this.style.opacity='1'">
+                Bacolod City, PH <span style="color:var(--acc);font-size:10px;margin-left:2px">▼</span>
+              </div>
+            </div>
+            <div class="desktop-nav">
+              <div class="dnav-link active" onclick="go('s-home')">Home</div>
+              <div class="dnav-link" onclick="go('s-explore')">Explore</div>
+              <div class="dnav-link" onclick="go('s-orders')">Orders</div>
+              <div class="dnav-link" onclick="go('s-me')">Me</div>
+            </div>
+            <div class="srch">
+              <input type="text" class="srch-input" placeholder="Search shoes, brands..." />
+              <span class="srch-scan" onclick="toast('📷 Scan to search!')">📷</span>
+              <div class="srch-btn" onclick="toast('🔍 Searching...')">🔍</div>
+            </div>
+            <div class="hdr-icons">
+              <div class="hdr-ico-btn" onclick="go('s-notifications')">🔔</div>
+              <div class="hdr-ico-btn" onclick="go('s-messages')">💬</div>
+              <div class="hdr-ico-btn" style="position:relative" onclick="go('s-cart')">
+                🛒<div class="badge" id="hdr-cart-badge">0</div>
+              </div>
+            </div>
+          </div>
+          <div class="web-layout-2col">
+
+            <!-- ══ LEFT SIDEBAR (Desktop Only) ══ -->
+            <aside class="web-sidebar">
+              <div class="web-sidebar-sticky">
+
+                <!-- Sidebar: Nav -->
+                <div class="sb-section">
+                  <div class="sb-label">Navigation</div>
+                  <div class="sb-nav-item sb-nav-active" onclick="go('s-home')">
+                    <span class="sb-nav-icon">🏠</span> Home
+                  </div>
+                  <div class="sb-nav-item" onclick="go('s-explore')">
+                    <span class="sb-nav-icon">🔍</span> Explore
+                  </div>
+                  <div class="sb-nav-item" onclick="go('s-orders')">
+                    <span class="sb-nav-icon">📦</span> My Orders
+                  </div>
+                  <div class="sb-nav-item" onclick="go('s-me')">
+                    <span class="sb-nav-icon">👤</span> Profile
+                  </div>
+                  <div class="sb-nav-item" onclick="go('s-cart')" style="position:relative">
+                    <span class="sb-nav-icon">🛒</span> Cart
+                    <span class="sb-badge" id="sb-cart-badge">0</span>
+                  </div>
+                </div>
+
+                <div class="sb-divider"></div>
+
+                <!-- Sidebar: Categories -->
+                <div class="sb-section">
+                  <div class="sb-label">Categories</div>
+                  <div class="sb-cat-item sb-cat-active" onclick="filterCategory('All', this)">All Shoes</div>
+                  <div class="sb-cat-item" onclick="filterCategory('Sneakers', this)">Sneakers</div>
+                  <div class="sb-cat-item" onclick="filterCategory('Running', this)">Running</div>
+                  <div class="sb-cat-item" onclick="filterCategory('Basketball', this)">Basketball</div>
+                  <div class="sb-cat-item" onclick="filterCategory('Boots', this)">Boots</div>
+                  <div class="sb-cat-item" onclick="filterCategory('Loafers', this)">Loafers</div>
+                  <div class="sb-cat-item" onclick="filterCategory('Sandals', this)">Sandals</div>
+                  <div class="sb-cat-item" onclick="filterCategory('Hiking', this)">Hiking</div>
+                  <div class="sb-cat-item" onclick="filterCategory('Clogs', this)">Clogs</div>
+                  <div class="sb-cat-item" onclick="filterCategory('Flip Flops', this)">Flip Flops</div>
+                </div>
+
+                <div class="sb-divider"></div>
+
+                <!-- Sidebar: Featured Brands -->
+                <div class="sb-section">
+                  <div class="sb-label">Brands</div>
+                  <div class="sb-brand-item" onclick="toast('🏪 Nike Central store...')">
+                    <div class="sb-brand-ico"></div>
+                    <div>
+                      <div class="sb-brand-name">Nike Central</div>
+                      <div class="sb-brand-sub">Trusted · 4.9★</div>
+                    </div>
+                  </div>
+                  <div class="sb-brand-item" onclick="toast('🏪 Adidas Heritage store...')">
+                    <div class="sb-brand-ico"></div>
+                    <div>
+                      <div class="sb-brand-name">Adidas Heritage</div>
+                      <div class="sb-brand-sub">Official · 4.8★</div>
+                    </div>
+                  </div>
+                  <div class="sb-brand-item" onclick="toast('🏪 Vans Retro store...')">
+                    <div class="sb-brand-ico"></div>
+                    <div>
+                      <div class="sb-brand-name">Vans Retro</div>
+                      <div class="sb-brand-sub">Streetwear · 4.9★</div>
+                    </div>
+                  </div>
+                  <div class="sb-brand-item" onclick="toast('🏪 Charles & Keith store...')">
+                    <div class="sb-brand-ico"></div>
+                    <div>
+                      <div class="sb-brand-name">Charles & Keith</div>
+                      <div class="sb-brand-sub">Fashion · 4.7★</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="sb-divider"></div>
+
+                <!-- Sidebar: Promo Card -->
+                <div class="sb-promo-card" onclick="toast('🎟️ Using code FREE50!')">
+                  <div class="sb-promo-icon"></div>
+                  <div class="sb-promo-title">Free Delivery</div>
+                  <div class="sb-promo-sub">Use code <strong>FREE50</strong> on orders ₱150+</div>
+                  <div class="sb-promo-btn">Claim Now →</div>
+                </div>
+
+              </div>
+            </aside>
+
+            <!-- Main Col -->
+            <div class="web-main">
+              <!-- Deleted HERO BANNER per user request -->
+              <!-- Category icons -->
+              <div class="cat-scroll-wrap">
+                <div class="cat-grid">
+                  <div class="cat-item active-cat" id="cat-all" onclick="filterCategory('All', this)">
+                    <div class="cat-img-box"><img src="lebron_21_orange_v1_1774746209076.png" alt="All" class="cat-logo" style="object-fit:contain;padding:4px;object-position:center 65%;"></div>
+                    <div class="cat-lbl">All</div>
+                  </div>
+                  <div class="cat-item" id="cat-sneakers" onclick="filterCategory('Sneakers', this)">
+                    <div class="cat-img-box"><img src="nike_air_max_solo_v1_1774746144920.png" alt="Sneakers" class="cat-logo"></div>
+                    <div class="cat-lbl">Sneakers</div>
+                  </div>
+                  <div class="cat-item" id="cat-boots" onclick="filterCategory('Boots', this)">
+                    <div class="cat-img-box"><img src="Assets/timberland pro.jpg" alt="Boots" class="cat-logo"></div>
+                    <div class="cat-lbl">Boots</div>
+                  </div>
+                  <div class="cat-item" id="cat-loafers" onclick="filterCategory('Loafers', this)">
+                    <div class="cat-img-box"><img src="Assets/classic loafer.jpg" alt="Loafers" class="cat-logo"></div>
+                    <div class="cat-lbl">Loafers</div>
+                  </div>
+                  <div class="cat-item" id="cat-sandals" onclick="filterCategory('Sandals', this)">
+                    <div class="cat-img-box"><img src="Assets/strappy sandals.jpg" alt="Sandals" class="cat-logo"></div>
+                    <div class="cat-lbl">Sandals</div>
+                  </div>
+                  <div class="cat-item" id="cat-running" onclick="filterCategory('Running', this)">
+                    <div class="cat-img-box"><img src="nike_air_max_solo_v1_1774746144920.png" alt="Running" class="cat-logo"></div>
+                    <div class="cat-lbl">Running</div>
+                  </div>
+                  <div class="cat-item" id="cat-hiking" onclick="filterCategory('Hiking', this)">
+                    <div class="cat-img-box"><img src="Assets/merrell moab 3.jpg" alt="Hiking" class="cat-logo"></div>
+                    <div class="cat-lbl">Hiking</div>
+                  </div>
+                  <div class="cat-item" id="cat-clogs" onclick="filterCategory('Clogs', this)">
+                    <div class="cat-img-box"><img src="Assets/classic clog.jpg" alt="Clogs" class="cat-logo"></div>
+                    <div class="cat-lbl">Clogs</div>
+                  </div>
+                  <div class="cat-item" id="cat-flipflops" onclick="filterCategory('Flip Flops', this)">
+                    <div class="cat-img-box"><img src="Assets/stilitoes.jpg" alt="Flip Flops" class="cat-logo"></div>
+                    <div class="cat-lbl">Flip Flops</div>
+                  </div>
+                  <div class="cat-item" id="cat-basketball" onclick="filterCategory('Basketball', this)">
+                    <div class="cat-img-box"><img src="Assets/ball.jpg" alt="Basketball" class="cat-logo"></div>
+                    <div class="cat-lbl">Basketball</div>
+                  </div>
+                </div>
+              </div>
+              <!-- Free Delivery Banner -->
+              <div class="free-del-banner">
+                <div class="fdb-icon">🚴</div>
+                <div class="fdb-text">
+                  <div class="fdb-title">Free Delivery All Day!</div>
+                  <div class="fdb-sub">Min. order ₱150 · Use code FREE50</div>
+                </div>
+                <div class="fdb-arrow">→</div>
+              </div>
+              <!-- Flash Sale -->
+              <div class="flash-row">
+                <div class="flash-card" onclick="selItem(0);go('s-detail')">
+                  <div class="flash-img" style="background:var(--surf2)">
+                    <img src="nike_air_max_solo_v1_1774746144920.png" style="width:100%;height:100%;object-fit:contain">
+                    <div class="flash-disc">-10%</div>
+                  </div>
+                  <div class="flash-info">
+                    <div class="flash-price">₱6,495</div>
+                    <div class="flash-orig">₱7,200</div>
+                    <div class="flash-sold">2.1k sold</div>
+                    <div class="flash-bar-wrap">
+                      <div class="flash-bar" style="width:78%"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="flash-card" onclick="selItem(1);go('s-detail')">
+                  <div class="flash-img" style="background:var(--surf2)">
+                    <img src="lebron_21_orange_v1_1774746209076.png" style="width:100%;height:100%;object-fit:contain">
+                    <div class="flash-disc">-15%</div>
+                  </div>
+                  <div class="flash-info">
+                    <div class="flash-price">₱10,895</div>
+                    <div class="flash-orig">₱12,800</div>
+                    <div class="flash-sold">3.4k sold</div>
+                    <div class="flash-bar-wrap">
+                      <div class="flash-bar" style="width:90%"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="flash-card" onclick="selItem(2);go('s-detail')">
+                  <div class="flash-img" style="background:var(--surf2)">
+                    <img src="Assets/court vision.jpg" style="width:100%;height:100%;object-fit:contain">
+                    <div class="flash-disc">-20%</div>
+                  </div>
+                  <div class="flash-info">
+                    <div class="flash-price">₱3,295</div>
+                    <div class="flash-orig">₱4,100</div>
+                    <div class="flash-sold">980 sold</div>
+                    <div class="flash-bar-wrap">
+                      <div class="flash-bar" style="width:55%"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="flash-card" onclick="selItem(6);go('s-detail')">
+                  <div class="flash-img" style="background:var(--surf2)">
+                    <img src="Assets/timberland pro.jpg" style="width:100%;height:100%;object-fit:contain">
+                    <div class="flash-disc">-20%</div>
+                  </div>
+                  <div class="flash-info">
+                    <div class="flash-price">₱8,900</div>
+                    <div class="flash-orig">₱11,000</div>
+                    <div class="flash-sold">5.2k sold</div>
+                    <div class="flash-bar-wrap">
+                      <div class="flash-bar" style="width:95%"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- QuickPay Wallet (ShopeePay-style) -->
+              <div class="spay-card">
+                <div class="spay-row1">
+                  <div class="spay-brand">⚡ QuickPay</div>
+                  <div class="spay-coins">🪙 Coins: <span id="coin-balance">240</span></div>
+                </div>
+                <div class="spay-row2">
+                  <div>
+                    <div class="spay-bal-lbl">Wallet Balance</div>
+                    <div class="spay-bal">₱ 1,240.00</div>
+                  </div>
+                  <div class="spay-btns">
+                    <div class="spay-btn" onclick="toast('💳 Top Up screen opening...')">Top Up</div>
+                    <div class="spay-btn" onclick="toast('↗️ Transfer opening...')">Transfer</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Vouchers -->
+              <div class="sec-hdr">
+                <div class="sec-t">🎟️ Your Vouchers</div>
+                <div class="sec-l">Claim All</div>
+              </div>
+              <div class="voucher-strip">
+                <div class="vc" onclick="toast('✅ STEP20 claimed!')">
+                  <div class="vc-pct">20%</div>
+                  <div class="vc-desc">All shoe orders</div>
+                  <div class="vc-code">STEP20</div>
+                  <div class="vc-exp">Exp: Apr 1</div>
+                </div>
+                <div class="vc" style="--acc:var(--green)" onclick="toast('✅ FREE50 claimed!')">
+                  <div class="vc-pct" style="color:var(--green)">₱50</div>
+                  <div class="vc-desc">Free delivery</div>
+                  <div class="vc-code">FREE50</div>
+                  <div class="vc-exp">Exp: Mar 31</div>
+                </div>
+                <div class="vc" onclick="toast('✅ NEW15 claimed!')">
+                  <div class="vc-pct">15%</div>
+                  <div class="vc-desc">New user deal</div>
+                  <div class="vc-code">NEW15</div>
+                  <div class="vc-exp">Exp: Apr 5</div>
+                </div>
+              </div>
+
+              <!-- Products -->
+              <div class="sec-hdr" style="margin-top:20px">
+                <div class="sec-t">🔥 Trending Kicks</div>
+                <div class="sec-l" onclick="toast('📋 Showing all items...')">See All</div>
+              </div>
+              <div class="prod-grid">
+
+                <!-- Air Max Solo -->
+                <div class="pc" onclick="selItem(0);go('s-detail')">
+                  <div class="pc-badge"><span class="tag-pill tag-hot">🔥 Hot</span></div>
+                  <div class="pc-img" style="background:var(--surf2)">
+                    <img src="nike_air_max_solo_v1_1774746144920.png" style="width:100%;height:100%;object-fit:contain">
+                    <div class="pc-fav" onclick="event.stopPropagation();toggleFav(this)">🤍</div>
+                  </div>
+                  <div class="pc-body">
+                    <div class="pc-name">Air Max Solo</div>
+                    <div class="pc-shop">🏪 Nike Central <span style="color:var(--txt3)">·</span> <span
+                        class="pc-stars">★</span> 4.9</div>
+                    <div class="pc-cat-tag">Running</div>
+                    <div class="pc-sold">12.4k sold</div>
+                    <div class="pc-price-row">
+                      <div>
+                        <div class="pc-price">₱6,495</div>
+                        <div class="pc-orig">₱7,200 <span class="pc-disc">-10%</span></div>
+                      </div>
+                      <button class="pc-add" onclick="event.stopPropagation();quickAdd(0)">+</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Lebron 21 -->
+                <div class="pc" onclick="selItem(1);go('s-detail')">
+                  <div class="pc-badge"><span class="tag-pill tag-new">✨ New</span></div>
+                  <div class="pc-img" style="background:var(--surf2)">
+                    <img src="lebron_21_orange_v1_1774746209076.png" style="width:100%;height:100%;object-fit:contain">
+                    <div class="pc-fav" onclick="event.stopPropagation();toggleFav(this)">🤍</div>
+                  </div>
+                  <div class="pc-body">
+                    <div class="pc-name">Lebron 21</div>
+                    <div class="pc-shop">🏪 Nike Central <span style="color:var(--txt3)">·</span> <span
+                        class="pc-stars">★</span> 4.8</div>
+                    <div class="pc-cat-tag">Basketball</div>
+                    <div class="pc-sold">5.2k sold</div>
+                    <div class="pc-price-row">
+                      <div>
+                        <div class="pc-price">₱10,895</div>
+                        <div class="pc-orig">₱12,800 <span class="pc-disc">-15%</span></div>
+                      </div>
+                      <button class="pc-add" onclick="event.stopPropagation();quickAdd(1)">+</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Court Vision -->
+                <div class="pc" onclick="selItem(2);go('s-detail')">
+                  <div class="pc-img" style="background:var(--surf2)">
+                    <img src="Assets/court vision.jpg" style="width:100%;height:100%;object-fit:contain">
+                    <div class="pc-fav" onclick="event.stopPropagation();toggleFav(this)">🤍</div>
+                  </div>
+                  <div class="pc-body">
+                    <div class="pc-name">Court Vision</div>
+                    <div class="pc-shop">🏪 Nike Central <span style="color:var(--txt3)">·</span> <span
+                        class="pc-stars">★</span> 4.7</div>
+                    <div class="pc-cat-tag">Sneakers</div>
+                    <div class="pc-sold">15k sold</div>
+                    <div class="pc-price-row">
+                      <div>
+                        <div class="pc-price">₱3,295</div>
+                        <div class="pc-orig">₱4,100 <span class="pc-disc">-20%</span></div>
+                      </div>
+                      <button class="pc-add" onclick="event.stopPropagation();quickAdd(2)">+</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Superstar Classic -->
+                <div class="pc" onclick="selItem(3);go('s-detail')">
+                  <div class="pc-badge"><span class="tag-pill tag-free">🚚 Free Del</span></div>
+                  <div class="pc-img" style="background:var(--surf2)">
+                    <img src="adidas_superstar_classic_v1_1774746288243.png"
+                      style="width:100%;height:100%;object-fit:contain">
+                    <div class="pc-fav" onclick="event.stopPropagation();toggleFav(this)">🤍</div>
+                  </div>
+                  <div class="pc-body">
+                    <div class="pc-name">Superstar Classic</div>
+                    <div class="pc-shop">🏪 Adidas Heritage <span style="color:var(--txt3)">·</span> <span
+                        class="pc-stars">★</span> 4.9</div>
+                    <div class="pc-cat-tag">Sneakers</div>
+                    <div class="pc-sold">8.5k sold</div>
+                    <div class="pc-price-row">
+                      <div>
+                        <div class="pc-price">₱5,300</div>
+                        <div class="pc-orig">₱5,600 <span class="pc-disc">-5%</span></div>
+                      </div>
+                      <button class="pc-add" onclick="event.stopPropagation();quickAdd(3)">+</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Elegant Stilettos -->
+                <div class="pc" onclick="selItem(7);go('s-detail')">
+                  <div class="pc-badge"><span class="tag-pill tag-new">✨ New</span></div>
+                  <div class="pc-img" style="background:var(--surf2)">
+                    <img src="Assets/stilitoes.jpg" style="width:100%;height:100%;object-fit:contain">
+                    <div class="pc-fav" onclick="event.stopPropagation();toggleFav(this)">🤍</div>
+                  </div>
+                  <div class="pc-body">
+                    <div class="pc-name">Elegant Stilettos</div>
+                    <div class="pc-shop">🏪 Charles &amp; Keith <span style="color:var(--txt3)">·</span> <span
+                        class="pc-stars">★</span> 4.7</div>
+                    <div class="pc-cat-tag">Formal</div>
+                    <div class="pc-sold">1.2k sold</div>
+                    <div class="pc-price-row">
+                      <div>
+                        <div class="pc-price">₱2,800</div>
+                        <div class="pc-orig">₱3,300 <span class="pc-disc">-15%</span></div>
+                      </div>
+                      <button class="pc-add" onclick="event.stopPropagation();quickAdd(7)">+</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Old Skool -->
+                <div class="pc" onclick="selItem(9);go('s-detail')">
+                  <div class="pc-badge"><span class="tag-pill tag-hot">🔥 Hot</span></div>
+                  <div class="pc-img" style="background:var(--surf2)">
+                    <img src="Assets/old school.jpg" style="width:100%;height:100%;object-fit:contain">
+                    <div class="pc-fav" onclick="event.stopPropagation();toggleFav(this)">🤍</div>
+                  </div>
+                  <div class="pc-body">
+                    <div class="pc-name">Old Skool</div>
+                    <div class="pc-shop">🏪 Vans Retro <span style="color:var(--txt3)">·</span> <span
+                        class="pc-stars">★</span> 4.9</div>
+                    <div class="pc-cat-tag">Sneakers</div>
+                    <div class="pc-sold">12.4k sold</div>
+                    <div class="pc-price-row">
+                      <div>
+                        <div class="pc-price">₱3,800</div>
+                        <div class="pc-orig">₱4,500 <span class="pc-disc">-16%</span></div>
+                      </div>
+                      <button class="pc-add" onclick="event.stopPropagation();quickAdd(9)">+</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Chuck 70 High -->
+                <div class="pc" onclick="selItem(4);go('s-detail')">
+                  <div class="pc-img" style="background:var(--surf2)">
+                    <img src="Assets/CHuck 70.png" style="width:100%;height:100%;object-fit:contain">
+                    <div class="pc-fav" onclick="event.stopPropagation();toggleFav(this)">🤍</div>
+                  </div>
+                  <div class="pc-body">
+                    <div class="pc-name">Chuck 70 High</div>
+                    <div class="pc-shop">🏪 Converse Store <span style="color:var(--txt3)">·</span> <span
+                        class="pc-stars">★</span> 4.8</div>
+                    <div class="pc-cat-tag">Casual</div>
+                    <div class="pc-sold">3.1k sold</div>
+                    <div class="pc-price-row">
+                      <div>
+                        <div class="pc-price">₱4,195</div>
+                        <div class="pc-orig">₱4,600 <span class="pc-disc">-9%</span></div>
+                      </div>
+                      <button class="pc-add" onclick="event.stopPropagation();quickAdd(4)">+</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Classic Loafer -->
+                <div class="pc" onclick="selItem(5);go('s-detail')">
+                  <div class="pc-img" style="background:var(--surf2)">
+                    <img src="Assets/classic loafer.jpg" style="width:100%;height:100%;object-fit:contain">
+                    <div class="pc-fav" onclick="event.stopPropagation();toggleFav(this)">🤍</div>
+                  </div>
+                  <div class="pc-body">
+                    <div class="pc-name">Classic Loafer</div>
+                    <div class="pc-shop">🏪 Aldo Men <span style="color:var(--txt3)">·</span> <span
+                        class="pc-stars">★</span> 4.6</div>
+                    <div class="pc-cat-tag">Formal</div>
+                    <div class="pc-sold">2.3k sold</div>
+                    <div class="pc-price-row">
+                      <div>
+                        <div class="pc-price">₱3,500</div>
+                        <div class="pc-orig">₱4,100 <span class="pc-disc">-15%</span></div>
+                      </div>
+                      <button class="pc-add" onclick="event.stopPropagation();quickAdd(5)">+</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Timberland Pro -->
+                <div class="pc" onclick="selItem(6);go('s-detail')">
+                  <div class="pc-badge"><span class="tag-pill tag-hot">🔥 Hot</span></div>
+                  <div class="pc-img" style="background:var(--surf2)">
+                    <img src="Assets/timberland pro.jpg" style="width:100%;height:100%;object-fit:contain">
+                    <div class="pc-fav" onclick="event.stopPropagation();toggleFav(this)">🤍</div>
+                  </div>
+                  <div class="pc-body">
+                    <div class="pc-name">Timberland Pro</div>
+                    <div class="pc-shop">🏪 Rugged Footwear <span style="color:var(--txt3)">·</span> <span
+                        class="pc-stars">★</span> 4.8</div>
+                    <div class="pc-cat-tag">Boots</div>
+                    <div class="pc-sold">1.9k sold</div>
+                    <div class="pc-price-row">
+                      <div>
+                        <div class="pc-price">₱8,900</div>
+                        <div class="pc-orig">₱11,000 <span class="pc-disc">-19%</span></div>
+                      </div>
+                      <button class="pc-add" onclick="event.stopPropagation();quickAdd(6)">+</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Strappy Sandals -->
+                <div class="pc" onclick="selItem(8);go('s-detail')">
+                  <div class="pc-badge"><span class="tag-pill tag-free">🚚 Free Del</span></div>
+                  <div class="pc-img" style="background:var(--surf2)">
+                    <img src="Assets/strappy sandals.jpg" style="width:100%;height:100%;object-fit:contain">
+                    <div class="pc-fav" onclick="event.stopPropagation();toggleFav(this)">🤍</div>
+                  </div>
+                  <div class="pc-body">
+                    <div class="pc-name">Strappy Sandals</div>
+                    <div class="pc-shop">🏪 Havaianas <span style="color:var(--txt3)">·</span> <span
+                        class="pc-stars">★</span> 4.5</div>
+                    <div class="pc-cat-tag">Sandals</div>
+                    <div class="pc-sold">5.2k sold</div>
+                    <div class="pc-price-row">
+                      <div>
+                        <div class="pc-price">₱1,500</div>
+                        <div class="pc-orig">₱1,700 <span class="pc-disc">-12%</span></div>
+                      </div>
+                      <button class="pc-add" onclick="event.stopPropagation();quickAdd(8)">+</button>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+          <!-- Bottom Nav -->
+
+        </div>
+
+        <!-- ────────────────────────────────────
+  SCREEN · CATEGORY BROWSE
+──────────────────────────────────────-->
+        <div class="screen" id="s-category">
+          <!-- Header -->
+          <div class="page-hdr" style="padding-bottom:10px">
+            <div class="back" onclick="back()">←</div>
+            <div class="ph-title" id="cat-screen-title">Sneakers</div>
+          </div>
+          <!-- Mini search bar -->
+          <div class="srch" style="margin:0 18px 14px">
+            <input type="text" class="srch-input" id="cat-search-input" placeholder="Search in category..."
+              oninput="filterCatSearch(this.value)" />
+            <div class="srch-btn" onclick="filterCatSearch(document.getElementById('cat-search-input').value)">🔍</div>
+          </div>
+          <!-- Result count -->
+          <div style="padding:0 18px 10px;font-size:11px;color:var(--txt2)" id="cat-result-count"></div>
+          <!-- Products grid -->
+          <div class="prod-grid" id="cat-grid" style="padding-top:0"></div>
+          <div style="height:30px"></div>
+        </div>
+
+        <!-- ────────────────────────────────────
+  SCREEN 2.5 · EXPLORE (SEARCH)
+──────────────────────────────────────-->
+        <div class="screen" id="s-explore">
+          <div class="web-top-nav">
+            <div class="hdr-loc">
+              <div class="brand-header">
+                <img src="lebron_21_orange_v1_1774746209076.png" style="width:38px;height:38px;border-radius:10px"
+                  alt="Logo">
+                <div class="logo-name" style="font-size:24px;margin:0;margin-left:6px">Shoe<span>Bee</span>Doo</div>
+              </div>
+            </div>
+            <div class="srch" onclick="document.getElementById('ex-input').focus()">
+              <input type="text" id="ex-input" class="srch-input" placeholder="Search shoes, brands..." />
+              <span class="srch-scan" onclick="event.stopPropagation();toast('📷 Scan to search!')">📷</span>
+              <div class="srch-btn" onclick="event.stopPropagation();toast('🔍 Searching...')">🔍</div>
+            </div>
+            <div class="hdr-icons"></div>
+          </div>
+          <div class="web-layout-2col">
+            <div class="web-main" style="padding-bottom:90px">
+              <div class="sec-hdr" style="margin-top:24px">
+                <div class="sec-t">🔍 Explore All Items</div>
+              </div>
+              <div class="prod-grid" id="explore-grid" style="padding-top:10px"></div>
+            </div>
+          </div>
+          <!-- Bottom Nav -->
+
+        </div>
+
+        <!-- ────────────────────────────────────
+  SCREEN 3 · PRODUCT DETAIL
+──────────────────────────────────────-->
+        <div class="screen has-fixed-footer" id="s-detail">
+          <div class="screen-scroll-wrap">
+            <div class="pd-img-wrap">
+              <div class="pd-img-back" onclick="back()">←</div>
+              <div class="pd-img-fav" id="pd-fav" onclick="toggleFavDetail()">🤍</div>
+              <div class="pd-img-share" onclick="toast('🔗 Link copied!')">↗️</div>
+              <div class="pd-emoji" id="pd-emoji">👟</div>
+              <div class="pd-img-overlay"></div>
+              <div class="pd-dots">
+                <div class="pd-dot on"></div>
+                <div class="pd-dot"></div>
+                <div class="pd-dot"></div>
+              </div>
+            </div>
+            <div class="pd-body">
+              <!-- Price + discount -->
+              <div class="pd-price-row">
+                <div class="pd-price" id="pd-price">₱299</div>
+                <div class="pd-orig" id="pd-orig">₱350</div>
+                <div class="pd-disc-pill" id="pd-disc">-15%</div>
+              </div>
+              <div class="pd-title" id="pd-title">Air Max Solo</div>
+              <!-- Rating + sold -->
+              <div class="pd-meta">
+                <span class="pd-stars">★★★★★</span>
+                <span class="pd-rating" id="pd-rat">4.9</span>
+                <span class="pd-reviews" id="pd-rev">(2.3k reviews)</span>
+                <span class="pd-sold" id="pd-sold">5.2k sold</span>
+              </div>
+              <!-- Guarantee -->
+              <div class="pd-guarantee">
+                <div class="pd-g-ico">🔒</div>
+                <div>
+                  <div class="pd-g-txt">Shoe<span style="color:var(--acc)">Bee</span>Doo Guarantee</div>
+                  <div class="pd-g-sub">Payment held until you confirm receipt</div>
+                </div>
+              </div>
+              <!-- Variations -->
+              <div class="pd-var-title">SizeSelection (US Men)</div>
+              <div class="pd-var-row">
+                <div class="var-chip" onclick="selVar(this,'size')">7</div>
+                <div class="var-chip" onclick="selVar(this,'size')">8</div>
+                <div class="var-chip sel" onclick="selVar(this,'size')">9</div>
+                <div class="var-chip" onclick="selVar(this,'size')">10</div>
+                <div class="var-chip" onclick="selVar(this,'size')">11</div>
+              </div>
+              <div class="pd-var-title">Colorway</div>
+              <div class="pd-var-row">
+                <div class="var-chip sel" onclick="this.classList.toggle('sel')">OG Blue</div>
+                <div class="var-chip" onclick="this.classList.toggle('sel')">Triple Black</div>
+                <div class="var-chip" onclick="this.classList.toggle('sel')">Pure White</div>
+              </div>
+              <!-- Description -->
+              <div style="font-family:var(--fh);font-size:13px;font-weight:700;color:var(--txt);margin-bottom:6px">
+                Description</div>
+              <div class="pd-desc" id="pd-desc">A perfectly baked thin-crust pizza topped with generous pepperoni,
+                mozzarella, and our signature tomato sauce. Made fresh to order every time.</div>
+              <!-- Delivery info -->
+              <div
+                style="background:var(--surf);border:1px solid var(--surf3);border-radius:10px;padding:12px 14px;margin-bottom:14px">
+                <div style="font-size:12px;color:var(--txt2);display:flex;gap:8px;margin-bottom:7px">
+                  <span>🚴</span><span>Standard Delivery — <strong style="color:var(--green)">FREE</strong> · Est. 25-40
+                    min</span>
+                </div>
+                <div style="font-size:12px;color:var(--txt2);display:flex;gap:8px;margin-bottom:7px">
+                  <span>⚡</span><span>Express Delivery — <strong style="color:var(--acc)">₱35</strong> · Est. 15
+                    min</span>
+                </div>
+                <div style="font-size:12px;color:var(--txt2);display:flex;gap:8px"><span>↩️</span><span>Return policy —
+                    30
+                    min from delivery</span></div>
+              </div>
+              <!-- Seller card -->
+              <div class="pd-var-title">Restaurant</div>
+              <div class="seller-card" id="pd-seller">
+                <div class="seller-ava">T</div>
+                <div class="seller-info">
+                  <div class="seller-name" id="pd-shop">Tony's Kitchen</div>
+                  <div class="seller-meta">⭐ 4.9 · 12.4k ratings · Active 2min ago</div>
+                </div>
+                <div class="seller-chat-btn" onclick="go('s-chat-detail')">Chat</div>
+              </div>
+
+              <!-- Removed pd-bottom from here -->
+            </div>
+
+            <div class="pd-reviews-wrap">
+              <!-- Reviews section -->
+              <div class="sec-hdr">
+                <div class="sec-t">⭐ Reviews</div>
+                <div class="sec-l" onclick="toast('📋 All reviews...')">See All</div>
+              </div>
+              <div style="padding:0 18px 10px;display:flex;gap:14px;align-items:center">
+                <div style="font-family:var(--fh);font-size:38px;font-weight:800;color:var(--txt)" id="pd-avg-rat">4.9
+                </div>
+                <div>
+                  <div style="color:var(--acc2);font-size:16px">★★★★★</div>
+                  <div style="font-size:12px;color:var(--txt2);margin-top:4px" id="pd-total-rev">2,341 ratings</div>
+                </div>
+              </div>
+              <div class="review-row">
+                <div class="rv-card">
+                  <div class="rv-head">
+                    <div class="rv-ava">M</div>
+                    <div>
+                      <div class="rv-name">Maria S.</div>
+                      <div class="rv-stars">★★★★★</div>
+                    </div>
+                  </div>
+                  <div class="rv-txt">Super fresh! Arrived in 25 minutes and still hot. Will order again for sure 😍
+                  </div>
+                  <div class="rv-img-row">
+                    <div class="rv-img">🍕</div>
+                    <div class="rv-img">📸</div>
+                  </div>
+                </div>
+                <div class="rv-card">
+                  <div class="rv-head">
+                    <div class="rv-ava">J</div>
+                    <div>
+                      <div class="rv-name">Juan D.</div>
+                      <div class="rv-stars">★★★★☆</div>
+                    </div>
+                  </div>
+                  <div class="rv-txt">Great taste! A bit small for the price but still worth it. Packaging was great.
+                  </div>
+                </div>
+                <div class="rv-card">
+                  <div class="rv-head">
+                    <div class="rv-ava">A</div>
+                    <div>
+                      <div class="rv-name">Ana R.</div>
+                      <div class="rv-stars">★★★★★</div>
+                    </div>
+                  </div>
+                  <div class="rv-txt">Best pizza in Bacolod! Very cheesy and the crust is perfectly crispy 👌</div>
+                  <div class="rv-img-row">
+                    <div class="rv-img">🔥</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Sticky placed at the end of the screen for absolute mobile stickiness -->
+          <div class="pd-bottom" style="gap:10px;padding:12px 14px">
+            <div
+              style="display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;padding:0 8px;border-right:1px solid var(--surf3)"
+              onclick="go('s-chat-detail')">
+              <div style="font-size:22px">💬</div>
+              <div style="font-size:10px;color:var(--txt2);font-weight:600;text-transform:uppercase">Chat</div>
+            </div>
+            <div class="pd-qty" style="flex:0.8;margin:0">
+              <button class="qty-btn" onclick="chgQty(-1)">−</button>
+              <div class="qty-n" id="pd-qty">1</div>
+              <button class="qty-btn" onclick="chgQty(1)">+</button>
+            </div>
+            <button class="pd-atc" style="flex:1" onclick="atcAction()">Add to Cart</button>
+            <button class="pd-buynow" style="flex:1.2" onclick="buyNowAction()">Buy Now</button>
+          </div>
+        </div>
+
+        <!-- ────────────────────────────────────
+  SCREEN 4 · CART
+──────────────────────────────────────-->
+        <div class="screen" id="s-cart">
+
+          <div class="page-hdr">
+            <div class="back" onclick="back()">←</div>
+            <div class="ph-title">My Cart</div>
+            <div style="margin-left:auto;font-size:12px;color:var(--txt2)" id="cart-item-count">0 items</div>
+          </div>
+          <!-- Empty state -->
+          <div id="cart-empty-state"
+            style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:50px 30px;text-align:center">
+            <div style="font-size:60px;margin-bottom:14px">🛒</div>
+            <div style="font-family:var(--fh);font-size:18px;font-weight:700;color:var(--txt);margin-bottom:8px">Your
+              cart is empty</div>
+            <div style="font-size:13px;color:var(--txt2);margin-bottom:20px">Browse our menu and add delicious items!
+            </div>
+            <button class="btn-acc" style="width:auto;padding:13px 28px" onclick="go('s-explore')">Browse Menu</button>
+          </div>
+          <!-- Cart Content -->
+          <div id="cart-content" style="display:none">
+            <!-- Cart items will be injected here -->
+            <div id="cart-items-container"></div>
+            <!-- Cart Checkout bar -->
+            <div class="checkout-bar">
+              <div class="cb-top">
+                <div class="cb-items" id="cart-items-lbl">0 items selected</div>
+                <div class="cb-total">Total: <span id="cart-total-val">₱0</span></div>
+              </div>
+              <button class="btn-acc" onclick="goCheckout()">Check Out</button>
+            </div>
+          </div>
+
+
+        </div>
+
+        <!-- ────────────────────────────────────
+  SCREEN 4.5 · CHECKOUT
+──────────────────────────────────────-->
+        <div class="screen has-fixed-footer" id="s-checkout">
+          <div class="page-hdr">
+            <div class="back" onclick="back()">←</div>
+            <div class="ph-title">Checkout</div>
+          </div>
+
+          <div class="screen-scroll-wrap">
+            <!-- Items Summary -->
+            <div class="order-sum" id="checkout-items-summary"
+              style="margin-top: 10px; margin-bottom: 12px; padding: 14px 18px;">
+              <!-- Checkout items injected here -->
+            </div>
+
+            <!-- Voucher section -->
+            <div class="voucher-sec">
+              <div class="vs-row" onclick="applyVoucher('shopee')">
+                <div class="vs-ico">🎟️</div>
+                <div class="vs-txt">ShoeBeeDoo Voucher</div>
+                <div class="vs-val" id="qb-vou-val">Select</div>
+                <div class="vs-arr">→</div>
+              </div>
+              <div class="vs-divider"></div>
+              <div class="vs-row" onclick="applyVoucher('shop')">
+                <div class="vs-ico">🏪</div>
+                <div class="vs-txt">Shop Voucher</div>
+                <div class="vs-val" id="shop-vou-val">Select</div>
+                <div class="vs-arr">→</div>
+              </div>
+            </div>
+            <!-- Coins -->
+            <div class="voucher-sec" style="margin-top:0;margin-bottom:8px">
+              <div class="coins-row">
+                <div class="coins-ico">🪙</div>
+                <div class="coins-txt">
+                  <div class="coins-lbl">Use Shoe<span style="color:var(--acc)">Bee</span>Doo Coins</div>
+                  <div class="coins-sub">240 coins = ₱12.00 off</div>
+                </div>
+                <div class="coin-toggle" id="coin-tog" onclick="toggleCoins()">
+                  <div class="ct-knob"></div>
+                </div>
+              </div>
+            </div>
+            <!-- Delivery time slot -->
+            <div class="voucher-sec" style="margin-bottom:8px">
+              <div class="vs-row" onclick="toast('🕐 Choose delivery time...')">
+                <div class="vs-ico">🕐</div>
+                <div class="vs-txt">Delivery Time</div>
+                <div class="vs-val" style="color:var(--txt)">ASAP (25-40 min)</div>
+                <div class="vs-arr">→</div>
+              </div>
+              <div class="vs-divider"></div>
+              <div class="vs-row" onclick="toast('📍 Change address...')">
+                <div class="vs-ico">📍</div>
+                <div class="vs-txt">Deliver to</div>
+                <div class="vs-val" style="color:var(--txt);font-size:11px">Bacolod City</div>
+                <div class="vs-arr">→</div>
+              </div>
+            </div>
+            <!-- Order Summary -->
+            <div class="order-sum">
+              <div class="os-row"><span>Subtotal</span><span class="os-val" id="os-sub">₱0</span></div>
+              <div class="os-row"><span>Delivery fee</span><span class="os-val" style="color:var(--green)">FREE</span>
+              </div>
+              <div class="os-row"><span>Voucher discount</span><span class="os-val disc" id="os-vou">−₱0</span></div>
+              <div class="os-row"><span>Coins used</span><span class="os-val disc" id="os-coins">−₱0</span></div>
+              <div class="os-row total"><span>Order Total</span><span class="os-val big" id="os-total">₱0</span></div>
+            </div>
+            <!-- Payment -->
+            <div class="pay-sec">
+              <div class="pay-hdr">💳 Payment Method</div>
+              <div class="pay-opt sel" onclick="selPay(this)">
+                <div class="pay-ico">⚡</div>
+                <div class="pay-info">
+                  <div class="pay-nm">QuickPay Wallet</div>
+                  <div class="pay-sub">Balance: ₱1,240.00</div>
+                </div>
+                <div class="pay-radio"></div>
+              </div>
+              <div class="pay-opt" onclick="selPay(this)">
+                <div class="pay-ico">💵</div>
+                <div class="pay-info">
+                  <div class="pay-nm">Cash on Delivery</div>
+                  <div class="pay-sub">Pay when you receive</div>
+                </div>
+                <div class="pay-radio"></div>
+              </div>
+              <div class="pay-opt" onclick="selPay(this)">
+                <div class="pay-ico">📱</div>
+                <div class="pay-info">
+                  <div class="pay-nm">GCash / Maya</div>
+                  <div class="pay-sub">Link your e-wallet</div>
+                </div>
+                <div class="pay-radio"></div>
+              </div>
+              <div class="pay-opt" onclick="selPay(this)">
+                <div class="pay-ico">💳</div>
+                <div class="pay-info">
+                  <div class="pay-nm">Credit / Debit Card</div>
+                  <div class="pay-sub">Visa, Mastercard, JCB</div>
+                </div>
+                <div class="pay-radio"></div>
+              </div>
+            </div>
+            <!-- Checkout bar -->
+            <div class="checkout-bar">
+              <div class="cb-top">
+                <div class="cb-items" id="cb-items-lbl">0 items selected</div>
+                <div class="cb-total">Total: <span id="cb-total-val">₱0</span></div>
+              </div>
+              <button class="btn-acc" onclick="placeOrder()">Place Order (₱<span id="cb-btn-total">0</span>)</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ────────────────────────────────────
+  SCREEN 5 · MY ORDERS
+──────────────────────────────────────-->
+        <div class="screen" id="s-orders">
+
+          <div class="page-hdr">
+            <div class="back" onclick="back()">←</div>
+            <div class="ph-title">My Orders</div>
+          </div>
+          <div class="order-tabs">
+            <div class="ot on" onclick="setOTab(this,'topay')">To Pay</div>
+            <div class="ot" onclick="setOTab(this,'toship')">To Deliver</div>
+            <div class="ot" onclick="setOTab(this,'toreceive')">To Receive</div>
+            <div class="ot" onclick="setOTab(this,'torate')">To Rate</div>
+            <div class="ot" onclick="setOTab(this,'complete')">Complete</div>
+          </div>
+          <!-- To Pay -->
+          <div id="tab-topay">
+            <div class="order-card">
+              <div class="oc-head"><span style="font-size:16px">🏪</span>
+                <div class="oc-shop">Nike Central</div>
+                <div class="oc-status topay">To Pay</div>
+              </div>
+              <div class="oc-item-row">
+                <div class="oc-item-img"
+                  style="background:var(--surf2);overflow:hidden;display:flex;align-items:center;justify-content:center">
+                  <img src="nike_air_max_solo_v1_1774746144920.png"
+                    style="width:100%;height:100%;object-fit:cover;border-radius:inherit">
+                </div>
+                <div class="oc-item-info">
+                  <div class="oc-item-name">Air Max Solo (Black)</div>
+                  <div class="oc-item-qty">Qty: 1 · Size 10 · OG Blue</div>
+                </div>
+                <div class="oc-item-price">₱6,495</div>
+              </div>
+              <div class="oc-foot">
+                <div class="oc-total">Order Total: <span>₱6,495</span></div>
+                <button class="oc-btn sec" onclick="toast('❌ Order cancelled')">Cancel</button>
+                <button class="oc-btn prim" onclick="toast('💳 Redirecting to payment...')">Pay Now</button>
+              </div>
+            </div>
+          </div>
+          <!-- To Deliver -->
+          <div id="tab-toship" style="display:none">
+            <div class="order-card">
+              <div class="oc-head"><span style="font-size:16px">🏪</span>
+                <div class="oc-shop">Nike Central</div>
+                <div class="oc-status toship">Preparing</div>
+              </div>
+              <div class="oc-item-row">
+                <div class="oc-item-img"
+                  style="background:var(--surf2);overflow:hidden;display:flex;align-items:center;justify-content:center">
+                  <img src="lebron_21_orange_v1_1774746209076.png"
+                    style="width:100%;height:100%;object-fit:cover;border-radius:inherit">
+                </div>
+                <div class="oc-item-info">
+                  <div class="oc-item-name">Lebron 21 (Elite)</div>
+                  <div class="oc-item-qty">Qty: 1 · Size 11 · Gold/White</div>
+                </div>
+                <div class="oc-item-price">₱10,895</div>
+              </div>
+              <div class="oc-foot">
+                <div class="oc-total">Order Total: <span>₱10,895</span></div>
+                <button class="oc-btn sec" onclick="go('s-track')">Track Order</button>
+                <button class="oc-btn prim" onclick="toast('💬 Chatting with shop...')">Chat</button>
+              </div>
+            </div>
+          </div>
+          <!-- To Receive -->
+          <div id="tab-toreceive" style="display:none">
+            <div class="order-card">
+              <div class="oc-head"><span style="font-size:16px">🏪</span>
+                <div class="oc-shop">Adidas Heritage</div>
+                <div class="oc-status toreceive">Out for Delivery</div>
+              </div>
+              <div class="oc-item-row">
+                <div class="oc-item-img"
+                  style="background:var(--surf2);overflow:hidden;display:flex;align-items:center;justify-content:center">
+                  <img src="adidas_superstar_classic_v1_1774746288243.png"
+                    style="width:100%;height:100%;object-fit:cover;border-radius:inherit">
+                </div>
+                <div class="oc-item-info">
+                  <div class="oc-item-name">Superstar Classic</div>
+                  <div class="oc-item-qty">Qty: 1 · Size 9 · White/Black</div>
+                </div>
+                <div class="oc-item-price">₱5,300</div>
+              </div>
+              <div class="oc-foot">
+                <div class="oc-total">Order Total: <span>₱5,300</span></div>
+                <button class="oc-btn sec" onclick="go('s-track')">Track</button>
+                <button class="oc-btn prim" onclick="confirmReceipt()">Order Received</button>
+              </div>
+            </div>
+          </div>
+          <!-- To Rate -->
+          <div id="tab-torate" style="display:none">
+            <div class="order-card">
+              <div class="oc-head"><span style="font-size:16px">🏪</span>
+                <div class="oc-shop">Nike Central</div>
+                <div class="oc-status complete">Completed</div>
+              </div>
+              <div class="oc-item-row">
+                <div class="oc-item-img"
+                  style="background:var(--surf2);overflow:hidden;display:flex;align-items:center;justify-content:center">
+                  <img src="nike_air_max_solo_v1_1774746144920.png"
+                    style="width:100%;height:100%;object-fit:cover;border-radius:inherit">
+                </div>
+                <div class="oc-item-info">
+                  <div class="oc-item-name">Air Max Solo</div>
+                  <div class="oc-item-qty">Delivered Mar 25 · Size 10 · Black</div>
+                </div>
+                <div class="oc-item-price">₱6,495</div>
+              </div>
+              <div class="oc-foot">
+                <div class="oc-total">Order Total: <span>₱6,495</span></div>
+                <button class="oc-btn sec" onclick="quickAdd(0);toast('🛒 Added to cart!')">Buy Again</button>
+                <button class="oc-btn prim" onclick="go('s-rate')">Rate Now ⭐</button>
+              </div>
+            </div>
+          </div>
+          <!-- Complete -->
+          <div id="tab-complete" style="display:none">
+            <div class="order-card">
+              <div class="oc-head"><span style="font-size:16px">🏪</span>
+                <div class="oc-shop">Rugged Footwear</div>
+                <div class="oc-status complete">Completed</div>
+              </div>
+              <div class="oc-item-row">
+                <div class="oc-item-img"
+                  style="background:var(--surf2);overflow:hidden;display:flex;align-items:center;justify-content:center">
+                  <img src="Assets/timberland pro.jpg"
+                    style="width:100%;height:100%;object-fit:cover;border-radius:inherit">
+                </div>
+                <div class="oc-item-info">
+                  <div class="oc-item-name">Timberland Pro x1</div>
+                  <div class="oc-item-qty">Delivered Mar 20 · Size 11 · Rated ⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="oc-item-price">₱8,900</div>
+              </div>
+              <div class="oc-foot">
+                <div class="oc-total">Order Total: <span>₱8,900</span></div>
+                <button class="oc-btn sec" onclick="quickAdd(6);toast('🛒 Added to cart!')">Buy Again</button>
+                <button class="oc-btn prim" onclick="toast('↩️ Return/Refund request...')">Return</button>
+              </div>
+            </div>
+          </div>
+          <div style="height:20px"></div>
+
+        </div>
+
+        <!-- ────────────────────────────────────
+  SCREEN 6 · ORDER TRACKING
+──────────────────────────────────────-->
+        <div class="screen" id="s-track">
+
+          <div class="page-hdr">
+            <div class="back" onclick="back()">←</div>
+            <div class="ph-title">Track Order</div>
+          </div>
+          <!-- Map placeholder -->
+          <div class="track-map">
+            🗺️
+            <div class="tm-badge">🛵 On the way!</div>
+            <div class="tm-eta">⏱ ETA: ~12 minutes</div>
+          </div>
+          <!-- Tracking ID -->
+          <div class="tracking-info">
+            <div class="ti-row"><span>Order ID</span><span class="ti-val ti-id">QB-2025-0891</span></div>
+            <div class="ti-row"><span>Tracking No.</span><span class="ti-val">SPEPH-00821-PH</span></div>
+            <div class="ti-row" style="margin-bottom:0"><span>Rider</span><span class="ti-val">Rodrigo M. ⭐4.9 <span
+                  style="color:var(--acc);cursor:pointer" onclick="toast('📞 Calling rider...')">Call</span></span>
+            </div>
+          </div>
+          <!-- Steps -->
+          <div class="track-steps">
+            <div class="ts-step done">
+              <div class="ts-dot done">✓</div>
+              <div class="ts-content">
+                <div class="ts-title">Order Confirmed</div>
+                <div class="ts-sub">Payment received via QuickPay Wallet</div>
+                <div class="ts-time">9:41 AM</div>
+              </div>
+            </div>
+            <div class="ts-step done">
+              <div class="ts-dot done">✓</div>
+              <div class="ts-content">
+                <div class="ts-title">Restaurant Accepted</div>
+                <div class="ts-sub">BurgerBro is preparing your order</div>
+                <div class="ts-time">9:43 AM</div>
+              </div>
+            </div>
+            <div class="ts-step active">
+              <div class="ts-dot active">🛵</div>
+              <div class="ts-content">
+                <div class="ts-title">Out for Delivery</div>
+                <div class="ts-sub">Rider Rodrigo is on his way to you. 1.2 km away.</div>
+                <div class="ts-time">9:58 AM · Now</div>
+              </div>
+            </div>
+            <div class="ts-step">
+              <div class="ts-dot pend">🏠</div>
+              <div class="ts-content">
+                <div class="ts-title">Delivered</div>
+                <div class="ts-sub">Confirm receipt to release payment to restaurant</div>
+                <div class="ts-time">Estimated: 10:10 AM</div>
+              </div>
+            </div>
+            <div class="ts-step">
+              <div class="ts-dot pend">⭐</div>
+              <div class="ts-content">
+                <div class="ts-title">Rate Your Order</div>
+                <div class="ts-sub">Help others by leaving a review</div>
+                <div class="ts-time">After delivery</div>
+              </div>
+            </div>
+          </div>
+          <div style="padding:0 18px 20px;display:flex;gap:10px">
+            <button class="btn-ghost" style="flex:1" onclick="toast('💬 Chatting with rider...')">Chat Rider</button>
+            <button class="btn-acc" style="flex:1;box-shadow:none" onclick="confirmReceipt()">Confirm Received</button>
+          </div>
+        </div>
+
+        <!-- ────────────────────────────────────
+  SCREEN 7 · RATE & REVIEW
+──────────────────────────────────────-->
+        <div class="screen" id="s-rate">
+
+          <div class="page-hdr">
+            <div class="back" onclick="back()">←</div>
+            <div class="ph-title">Rate & Review</div>
+          </div>
+          <!-- Product rating -->
+          <div class="rate-product">
+            <div class="rp-head">
+              <div class="rp-img"
+                style="background:var(--surf2);overflow:hidden;display:flex;align-items:center;justify-content:center">
+                <img src="nike_air_max_solo_v1_1774746144920.png"
+                  style="width:100%;height:100%;object-fit:cover;border-radius:inherit">
+              </div>
+              <div class="rp-info">
+                <div class="rp-name">Air Max Solo</div>
+                <div class="rp-shop">🏪 Nike Central · Ordered Mar 25</div>
+              </div>
+            </div>
+            <div class="rp-stars-row">
+              <div class="rp-how">How would you rate this item?</div>
+              <div class="star-row" id="item-stars">
+                <div class="big-star" onclick="setStars('item-stars',1)">★</div>
+                <div class="big-star" onclick="setStars('item-stars',2)">★</div>
+                <div class="big-star" onclick="setStars('item-stars',3)">★</div>
+                <div class="big-star" onclick="setStars('item-stars',4)">★</div>
+                <div class="big-star" onclick="setStars('item-stars',5)">★</div>
+              </div>
+              <div class="rp-label" id="item-stars-lbl">Tap to rate</div>
+            </div>
+            <!-- Photo upload -->
+            <div class="rp-photo">
+              <div class="rp-photo-lbl">Add photos (optional)</div>
+              <div class="rp-photo-row">
+                <div class="rp-photo-add" onclick="toast('📷 Camera opening...')"><span>📷</span><span>Add</span></div>
+                <div class="rp-photo-add" onclick="toast('🖼️ Gallery opening...')"><span>🖼️</span><span>Gallery</span>
+                </div>
+              </div>
+            </div>
+            <textarea class="rp-textarea" rows="3" placeholder="Share your experience... (optional)"></textarea>
+          </div>
+          <!-- Seller rating -->
+          <div class="seller-rate">
+            <div class="sr-title">Rate the Store</div>
+            <div class="sr-row">
+              <div class="sr-lbl">Overall Experience</div>
+              <div class="sr-stars" id="sr-overall">
+                <div class="s-star" onclick="setStars('sr-overall',1)">★</div>
+                <div class="s-star" onclick="setStars('sr-overall',2)">★</div>
+                <div class="s-star" onclick="setStars('sr-overall',3)">★</div>
+                <div class="s-star" onclick="setStars('sr-overall',4)">★</div>
+                <div class="s-star" onclick="setStars('sr-overall',5)">★</div>
+              </div>
+            </div>
+            <div class="sr-row">
+              <div class="sr-lbl">Build Quality</div>
+              <div class="sr-stars" id="sr-quality">
+                <div class="s-star" onclick="setStars('sr-quality',1)">★</div>
+                <div class="s-star" onclick="setStars('sr-quality',2)">★</div>
+                <div class="s-star" onclick="setStars('sr-quality',3)">★</div>
+                <div class="s-star" onclick="setStars('sr-quality',4)">★</div>
+                <div class="s-star" onclick="setStars('sr-quality',5)">★</div>
+              </div>
+            </div>
+            <div class="sr-row">
+              <div class="sr-lbl">Delivery Speed</div>
+              <div class="sr-stars" id="sr-speed">
+                <div class="s-star" onclick="setStars('sr-speed',1)">★</div>
+                <div class="s-star" onclick="setStars('sr-speed',2)">★</div>
+                <div class="s-star" onclick="setStars('sr-speed',3)">★</div>
+                <div class="s-star" onclick="setStars('sr-speed',4)">★</div>
+                <div class="s-star" onclick="setStars('sr-speed',5)">★</div>
+              </div>
+            </div>
+            <div class="sr-row">
+              <div class="sr-lbl">Packaging</div>
+              <div class="sr-stars" id="sr-pack">
+                <div class="s-star" onclick="setStars('sr-pack',1)">★</div>
+                <div class="s-star" onclick="setStars('sr-pack',2)">★</div>
+                <div class="s-star" onclick="setStars('sr-pack',3)">★</div>
+                <div class="s-star" onclick="setStars('sr-pack',4)">★</div>
+                <div class="s-star" onclick="setStars('sr-pack',5)">★</div>
+              </div>
+            </div>
+          </div>
+          <div style="padding:0 18px 28px">
+            <button class="btn-acc" onclick="submitReview()">Submit Review →</button>
+          </div>
+        </div>
+
+        <!-- ────────────────────────────────────
+  SCREEN 8 · ORDER SUCCESS
+──────────────────────────────────────-->
+        <div class="screen" id="s-success">
+
+          <div style="padding:20px 28px;display:flex;flex-direction:column;align-items:center;text-align:center">
+            <div class="suc-ring">✅</div>
+            <div class="suc-title">Order Placed!</div>
+            <div class="suc-sub">Your payment is protected by<br><strong style="color:var(--acc)">ShoeBeeDoo
+                Guarantee</strong> until you confirm delivery.</div>
+            <div class="suc-id">SBD-2025-0891</div>
+            <div
+              style="background:var(--surf);border:1px solid var(--surf3);border-radius:12px;padding:14px;width:100%;margin-bottom:20px">
+              <div
+                style="font-size:12px;color:var(--txt2);margin-bottom:10px;text-align:left;font-family:var(--fh);font-weight:700">
+                Order Summary</div>
+              <div
+                style="display:flex;justify-content:space-between;font-size:12px;color:var(--txt2);margin-bottom:5px">
+                <span>Item(s)</span><span id="suc-items">1 item</span>
+              </div>
+              <div
+                style="display:flex;justify-content:space-between;font-size:12px;color:var(--txt2);margin-bottom:5px">
+                <span>Delivery</span><span style="color:var(--green)">FREE</span>
+              </div>
+              <div
+                style="display:flex;justify-content:space-between;font-size:12px;color:var(--txt2);margin-bottom:5px">
+                <span>Discount</span><span style="color:var(--green)" id="suc-disc">-₱0</span>
+              </div>
+              <div
+                style="display:flex;justify-content:space-between;font-size:14px;font-weight:700;color:var(--txt);border-top:1px solid var(--surf3);padding-top:8px;margin-top:5px">
+                <span>Total Paid</span><span style="color:var(--acc)" id="suc-total">₱0</span>
+              </div>
+            </div>
+            <div
+              style="background:var(--surf);border:1px solid var(--surf3);border-radius:12px;padding:14px;width:100%;margin-bottom:20px">
+              <div
+                style="font-size:12px;font-weight:700;color:var(--txt2);font-family:var(--fh);margin-bottom:12px;text-align:left">
+                🛵 Delivery Status</div>
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <div style="display:flex;flex-direction:column;align-items:center;gap:5px">
+                  <div
+                    style="width:28px;height:28px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px">
+                    ✓</div>
+                  <div style="font-size:9px;color:var(--txt2)">Confirmed</div>
+                </div>
+                <div style="flex:1;height:2px;background:var(--acc);margin:0 4px;margin-bottom:14px"></div>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:5px">
+                  <div
+                    style="width:28px;height:28px;background:var(--acc);border-radius:50%;animation:pD 1.5s infinite;display:flex;align-items:center;justify-content:center;font-size:12px">
+                    👨‍🍳</div>
+                  <div style="font-size:9px;color:var(--txt2)">Preparing</div>
+                </div>
+                <div style="flex:1;height:2px;background:var(--surf3);margin:0 4px;margin-bottom:14px"></div>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:5px">
+                  <div
+                    style="width:28px;height:28px;background:var(--surf3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--txt3)">
+                    🛵</div>
+                  <div style="font-size:9px;color:var(--txt2)">On Way</div>
+                </div>
+                <div style="flex:1;height:2px;background:var(--surf3);margin:0 4px;margin-bottom:14px"></div>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:5px">
+                  <div
+                    style="width:28px;height:28px;background:var(--surf3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--txt3)">
+                    🏠</div>
+                  <div style="font-size:9px;color:var(--txt2)">Delivered</div>
+                </div>
+              </div>
+            </div>
+            <div class="suc-actions">
+              <button class="btn-acc" onclick="go('s-track')">Track My Order 🛵</button>
+              <button class="btn-ghost" onclick="go('s-home');resetCart()">Back to Home</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ────────────────────────────────────
+  SCREEN 9 · PROFILE (ME)
+──────────────────────────────────────-->
+        <div class="screen" id="s-me">
+          <div
+            style="background:rgba(13,13,13,.9);padding:14px 18px;position:sticky;top:0;z-index:20;border-bottom:1px solid var(--surf3);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:space-between">
+            <div style="display:flex;align-items:center;gap:10px">
+              <div style="font-size:24px;color:#8844ff">👤</div>
+              <div style="font-family:var(--fh);font-size:20px;font-weight:800;color:var(--txt)">Profile</div>
+            </div>
+            <div style="display:flex;gap:12px;font-size:20px">
+              <div onclick="go('s-settings')"
+                style="cursor:pointer;background:rgba(255,255,255,0.05);width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background 0.2s"
+                onmousedown="this.style.background='rgba(255,255,255,0.1)'"
+                onmouseup="this.style.background='rgba(255,255,255,0.05)'">⚙️</div>
+              <div onclick="go('s-messages')"
+                style="cursor:pointer;background:rgba(255,255,255,0.05);width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background 0.2s"
+                onmousedown="this.style.background='rgba(255,255,255,0.1)'"
+                onmouseup="this.style.background='rgba(255,255,255,0.05)'">💬</div>
+            </div>
+          </div>
+
+          <div class="web-main" style="padding-bottom:20px;display:flex;flex-direction:column;flex:1">
+            <!-- User Header -->
+            <div style="padding:24px 18px;display:flex;align-items:center;gap:16px;background:var(--surf)">
+              <div
+                style="width:70px;height:70px;background:linear-gradient(135deg,var(--acc),var(--acc2));border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-weight:700;color:#fff;font-size:30px;box-shadow:0 8px 20px rgba(251,91,53,.3)">
+                JT</div>
+              <div style="flex:1">
+                <div style="font-family:var(--fh);font-size:22px;font-weight:800;color:var(--txt)">Jdeer Tañedo</div>
+                <div style="font-size:12px;color:var(--txt2);margin-top:4px">Silver Member 🥈 &nbsp;•&nbsp; Following:
+                  12</div>
+              </div>
+              <div
+                style="background:rgba(255,255,255,0.05);padding:6px 14px;border-radius:20px;font-size:12px;color:var(--txt2);font-weight:600;border:1px solid var(--surf3);cursor:pointer"
+                onclick="go('s-edit-profile')">Edit Profile</div>
+            </div>
+
+            <!-- My Wallet -->
+            <div
+              style="margin:16px 18px;background:var(--surf);border:1px solid var(--surf3);border-radius:14px;padding:16px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;transition:transform .2s">
+              <div style="display:flex;align-items:center;gap:12px">
+                <div style="font-size:32px">💳</div>
+                <div>
+                  <div
+                    style="font-size:11px;color:var(--txt2);font-weight:600;letter-spacing:0.5px;text-transform:uppercase">
+                    Shoe<span style="color:var(--acc)">Bee</span>Doo Wallet</div>
+                  <div style="font-family:var(--fh);font-size:18px;font-weight:700;color:var(--txt);margin-top:2px">₱
+                    2,450.00</div>
+                </div>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:5px">
+                <div
+                  style="font-size:12px;color:var(--acc);font-weight:700;background:rgba(251,91,53,.1);padding:2px 8px;border-radius:10px">
+                  14 Vouchers</div>
+                <div style="font-size:11px;color:var(--txt2)">320 Coins 🪙</div>
+              </div>
+            </div>
+
+            <!-- My Purchases -->
+            <div
+              style="margin:0 18px 16px;background:var(--surf);border:1px solid var(--surf3);border-radius:14px;padding:16px">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+                <div style="font-family:var(--fh);font-size:16px;font-weight:700;color:var(--txt)">📦 My Purchases</div>
+                <div style="font-size:12px;color:var(--txt2);cursor:pointer;display:flex;align-items:center;gap:4px"
+                  onclick="go('s-orders')">View Purchase History <span>></span></div>
+              </div>
+              <div style="display:flex;justify-content:space-between;padding:0 8px">
+                <div style="display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer"
+                  onclick="switchOrderTab('topay')">
+                  <div style="font-size:26px">⏳</div>
+                  <div style="font-size:11px;color:var(--txt);font-weight:500">To Pay</div>
+                </div>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer"
+                  onclick="switchOrderTab('toship')">
+                  <div style="font-size:26px">📦</div>
+                  <div style="font-size:11px;color:var(--txt);font-weight:500">To Deliver</div>
+                </div>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer"
+                  onclick="switchOrderTab('toreceive')">
+                  <div style="font-size:26px">🚚</div>
+                  <div style="font-size:11px;color:var(--txt);font-weight:500">To Receive</div>
+                </div>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer"
+                  onclick="switchOrderTab('torate')">
+                  <div style="font-size:26px">⭐</div>
+                  <div style="font-size:11px;color:var(--txt);font-weight:500">To Rate</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Actions List -->
+            <div
+              style="margin:0 18px 16px;background:var(--surf);border:1px solid var(--surf3);border-radius:14px;overflow:hidden">
+              <div
+                style="padding:16px;display:flex;align-items:center;gap:12px;cursor:pointer;border-bottom:1px solid var(--surf3);transition:background .2s"
+                onclick="toast('❤️ Saved items...')">
+                <div style="font-size:20px;width:24px;text-align:center">❤️</div>
+                <div style="font-size:14px;color:var(--txt);font-weight:500;flex:1">Saved Restaurants & Items</div>
+                <div style="color:var(--txt3)">></div>
+              </div>
+              <div
+                style="padding:16px;display:flex;align-items:center;gap:12px;cursor:pointer;border-bottom:1px solid var(--surf3);transition:background .2s"
+                onclick="toast('🕒 Recent Views...')">
+                <div style="font-size:20px;width:24px;text-align:center">🕒</div>
+                <div style="font-size:14px;color:var(--txt);font-weight:500;flex:1">Recently Viewed</div>
+                <div style="color:var(--txt3)">></div>
+              </div>
+              <div
+                style="padding:16px;display:flex;align-items:center;gap:12px;cursor:pointer;border-bottom:1px solid var(--surf3);transition:background .2s"
+                onclick="toast('🎧 Help Center...')">
+                <div style="font-size:20px;width:24px;text-align:center">🎧</div>
+                <div style="font-size:14px;color:var(--txt);font-weight:500;flex:1">Help Center & Support</div>
+                <div style="color:var(--txt3)">></div>
+              </div>
+              <div
+                style="padding:16px;display:flex;align-items:center;gap:12px;cursor:pointer;border-bottom:1px solid var(--surf3);transition:background .2s"
+                onclick="go('s-settings')">
+                <div style="font-size:20px;width:24px;text-align:center">⚙️</div>
+                <div style="font-size:14px;color:var(--txt);font-weight:500;flex:1">Account Settings</div>
+                <div style="color:var(--txt3)">></div>
+              </div>
+              <div
+                style="padding:16px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:background .2s"
+                onclick="toast('🛡️ Privacy Policy...')">
+                <div style="font-size:20px;width:24px;text-align:center">🛡️</div>
+                <div style="font-size:14px;color:var(--txt);font-weight:500;flex:1">Privacy & Security</div>
+                <div style="color:var(--txt3)">></div>
+              </div>
+            </div>
+
+            <!-- Settings / Log Out -->
+            <div
+              style="margin:0 18px 40px;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.25);border-radius:14px;color:var(--red);font-weight:700;font-size:15px;cursor:pointer;box-shadow:0 4px 12px rgba(239,68,68,0.15)"
+              onclick="toggleLogoutModal(true)">
+              Log Out
+            </div>
+          </div>
+
+
+        </div>
+
+        <!-- ────────────────────────────────────
+  SCREEN 10 · EDIT PROFILE
+──────────────────────────────────────-->
+        <div class="screen" id="s-edit-profile">
+          <div class="page-hdr">
+            <div class="back" onclick="back()">←</div>
+            <div class="ph-title">Edit Profile</div>
+          </div>
+          <div style="padding:10px 18px;display:flex;flex-direction:column;align-items:center;gap:12px">
+            <div
+              style="width:90px;height:90px;background:linear-gradient(135deg,var(--acc),var(--acc2));border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-weight:800;color:#fff;font-size:36px;position:relative">
+              JT
+              <div
+                style="position:absolute;bottom:0;right:0;width:30px;height:30px;background:var(--surf);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;border:2px solid var(--bg)">
+                📷</div>
+            </div>
+            <div style="font-size:12px;color:var(--acc);font-weight:700" onclick="toast('📷 Change photo...')">Change
+              Photo
+            </div>
+          </div>
+          <div style="padding:20px 18px;display:flex;flex-direction:column;gap:16px">
+            <div
+              style="font-size:14px;color:var(--txt);font-weight:800;border-bottom:1px solid var(--surf3);padding-bottom:8px;margin-bottom:4px">
+              Public Profile</div>
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <label style="font-size:12px;color:var(--txt2);font-weight:700">Display Name</label>
+              <input class="inp" type="text" value="Jdeer Tañedo" placeholder="Your name" />
+            </div>
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <label style="font-size:12px;color:var(--txt2);font-weight:700">Username</label>
+              <input class="inp" type="text" value="@jdeer_tanedo" placeholder="@username" />
+            </div>
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <label style="font-size:12px;color:var(--txt2);font-weight:700">Bio</label>
+              <textarea class="rp-textarea" rows="2" style="margin:0;width:100%"
+                placeholder="Write something about yourself...">Living the dream in Bacolod! 🌴🍔</textarea>
+            </div>
+            <div style="display:flex;flex-direction:row;gap:12px">
+              <div style="flex:1;display:flex;flex-direction:column;gap:6px">
+                <label style="font-size:12px;color:var(--txt2);font-weight:700">Gender</label>
+                <select class="inp"
+                  style="background:var(--surf);color:var(--txt);-webkit-appearance:none;appearance:none">
+                  <option>Male</option>
+                  <option selected>Female</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;gap:6px">
+                <label style="font-size:12px;color:var(--txt2);font-weight:700">Date of Birth</label>
+                <div
+                  style="background:var(--surf);border:1px solid var(--surf3);padding:14px;border-radius:12px;color:var(--txt2);font-size:13px;display:flex;justify-content:space-between">
+                  <span>Oct 24, 1995</span><span>📅</span>
+                </div>
+              </div>
+            </div>
+
+            <div
+              style="font-size:14px;color:var(--txt);font-weight:800;border-bottom:1px solid var(--surf3);padding-bottom:8px;margin-top:16px;margin-bottom:4px">
+              Private Details</div>
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <label style="font-size:12px;color:var(--txt2);font-weight:700">Phone Number</label>
+              <input class="inp" type="tel" value="+63 900 000 0000" placeholder="09XX XXX XXXX" />
+            </div>
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <label style="font-size:12px;color:var(--txt2);font-weight:700">Email Address</label>
+              <input class="inp" type="email" value="jdeer.tanedo@example.com" placeholder="email@example.com" />
+            </div>
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <label style="font-size:12px;color:var(--txt2);font-weight:700">Address (For Deliveries)</label>
+              <textarea class="rp-textarea" rows="2" style="margin:0;width:100%"
+                placeholder="Include building, street, and city...">123 Lacson Street, Bacolod City, Philippines</textarea>
+            </div>
+          </div>
+          <div style="padding:10px 18px 40px">
+            <button class="btn-acc" onclick="toast('✅ Profile Saved!');back()">Save Changes</button>
+          </div>
+        </div>
+
+        <!-- ────────────────────────────────────
+   SCREEN 7 · SETTINGS
+──────────────────────────────────────-->
+        <div class="screen" id="s-settings">
+          <div class="screen-hdr-lib">
+            <div class="hdr-back-sq" onclick="back()">←</div>
+            <div class="hdr-title-stack">
+              <div class="hdr-main-title">Settings</div>
+              <div class="hdr-sub-info">Manage your preferences</div>
+            </div>
+          </div>
+          <div style="padding:16px;padding-bottom:120px">
+            <div
+              style="font-size:11px;color:var(--txt2);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin:8px 6px">
+              Account</div>
+            <div
+              style="background:var(--surf);border:1px solid var(--surf3);border-radius:14px;overflow:hidden;margin-bottom:24px">
+              <div
+                style="padding:16px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--surf3);cursor:pointer;transition:background .2s"
+                onclick="toast('Going to Account Security...')">
+                <div style="font-size:20px;width:24px;text-align:center">🔒</div>
+                <div style="flex:1;font-size:14px;color:var(--txt);font-weight:600">Account & Security</div>
+                <div style="color:var(--txt3)">></div>
+              </div>
+              <div
+                style="padding:16px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--surf3);cursor:pointer;transition:background .2s"
+                onclick="go('s-edit-profile')">
+                <div style="font-size:20px;width:24px;text-align:center">👤</div>
+                <div style="flex:1;font-size:14px;color:var(--txt);font-weight:600">Personal Information</div>
+                <div style="color:var(--txt3)">></div>
+              </div>
+              <div
+                style="padding:16px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:background .2s"
+                onclick="toast('Going to Privacy...')">
+                <div style="font-size:20px;width:24px;text-align:center">👁️</div>
+                <div style="flex:1;font-size:14px;color:var(--txt);font-weight:600">Privacy Settings</div>
+                <div style="color:var(--txt3)">></div>
+              </div>
+            </div>
+
+            <div
+              style="font-size:11px;color:var(--txt2);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin:8px 6px">
+              Preferences</div>
+            <div
+              style="background:var(--surf);border:1px solid var(--surf3);border-radius:14px;overflow:hidden;margin-bottom:24px">
+              <div
+                style="padding:16px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--surf3);cursor:pointer;transition:background .2s"
+                onclick="toast('Notifications settings...')">
+                <div style="font-size:20px;width:24px;text-align:center">🔔</div>
+                <div style="flex:1;font-size:14px;color:var(--txt);font-weight:600">Notifications</div>
+                <div style="color:var(--txt3)">></div>
+              </div>
+              <div
+                style="padding:16px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--surf3);cursor:pointer;transition:background .2s"
+                onclick="toast('Language settings...')">
+                <div style="font-size:20px;width:24px;text-align:center">🌐</div>
+                <div style="flex:1;font-size:14px;color:var(--txt);font-weight:600">Language & Region</div>
+                <div style="font-size:12px;color:var(--txt2)">English</div>
+              </div>
+              <div
+                style="padding:16px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:background .2s"
+                onclick="toast('Appearance settings...')">
+                <div style="font-size:20px;width:24px;text-align:center">🌙</div>
+                <div style="flex:1;font-size:14px;color:var(--txt);font-weight:600">Appearance</div>
+                <div style="font-size:12px;color:var(--txt2)">Dark Mode</div>
+              </div>
+            </div>
+
+            <div
+              style="font-size:11px;color:var(--txt2);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin:8px 6px">
+              About</div>
+            <div
+              style="background:var(--surf);border:1px solid var(--surf3);border-radius:14px;overflow:hidden;margin-bottom:30px">
+              <div
+                style="padding:16px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--surf3);cursor:pointer;transition:background .2s"
+                onclick="toast('Clearing cache... Done!')">
+                <div style="font-size:20px;width:24px;text-align:center">🧹</div>
+                <div style="flex:1;font-size:14px;color:var(--txt);font-weight:600">Clear Storage Cache</div>
+                <div style="font-size:12px;color:var(--txt2)">14.2 MB</div>
+              </div>
+              <div
+                style="padding:16px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:background .2s"
+                onclick="toast('Opening Terms & Policies...')">
+                <div style="font-size:20px;width:24px;text-align:center">📄</div>
+                <div style="flex:1;font-size:14px;color:var(--txt);font-weight:600">Terms & Policies</div>
+                <div style="color:var(--txt3)">></div>
+              </div>
+            </div>
+
+            <button class="btn-ghost" style="color:var(--red);border-color:rgba(239,68,68,0.2)"
+              onclick="toggleLogoutModal(true)">Log Out</button>
+          </div>
+        </div>
+
+        <!-- ────────────────────────────────────
+   SCREEN 8 · MESSAGES (INBOX)
+──────────────────────────────────────-->
+        <div class="screen" id="s-messages">
+          <div class="screen-hdr-lib">
+            <div class="hdr-back-sq" onclick="back()">←</div>
+            <div class="hdr-title-stack">
+              <div class="hdr-main-title">Support Hub</div>
+              <div class="hdr-sub-info">3 active threads</div>
+            </div>
+            <div class="hdr-ico-btn" onclick="toast('🔍 Search message...')">🔍</div>
+          </div>
+          <div style="padding:16px">
+            <!-- Support Threads -->
+            <div style="background:var(--surf);border:1px solid var(--surf3);border-radius:14px;overflow:hidden">
+              <div
+                style="padding:14px 16px;display:flex;gap:12px;align-items:center;border-bottom:1px solid var(--surf3);cursor:pointer"
+                onclick="go('s-chat-detail')">
+                <div
+                  style="width:48px;height:48px;background:var(--acc);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;color:white">
+                  🚚</div>
+                <div style="flex:1">
+                  <div style="display:flex;justify-content:space-between;align-items:center">
+                    <div style="font-size:14px;font-weight:700;color:var(--txt)">Order Logistics Assistant</div>
+                    <div style="font-size:10px;color:var(--txt3)">Active Now</div>
+                  </div>
+                  <div
+                    style="font-size:12px;color:var(--txt2);margin-top:2px;display:flex;justify-content:space-between">
+                    <span>Ask about your delivery status...</span>
+                    <div style="width:8px;height:8px;background:var(--acc);border-radius:50%"></div>
+                  </div>
+                </div>
+              </div>
+              <div
+                style="padding:14px 16px;display:flex;gap:12px;align-items:center;border-bottom:1px solid var(--surf3);cursor:pointer"
+                onclick="toast('🛠️ Technical Order Support...')">
+                <div
+                  style="width:48px;height:48px;background:var(--surf2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px">
+                  🛠️</div>
+                <div style="flex:1">
+                  <div style="display:flex;justify-content:space-between;align-items:center">
+                    <div style="font-size:14px;font-weight:700;color:var(--txt)">Technical Ordering Help</div>
+                    <div style="font-size:10px;color:var(--txt3)">Waiting</div>
+                  </div>
+                  <div style="font-size:12px;color:var(--txt2);margin-top:2px">Help with checkout errors...</div>
+                </div>
+              </div>
+              <div style="padding:14px 16px;display:flex;gap:12px;align-items:center;cursor:pointer"
+                onclick="toast('💳 Payment Help Center...')">
+                <div
+                  style="width:48px;height:48px;background:var(--surf2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px">
+                  💳</div>
+                <div style="flex:1">
+                  <div style="display:flex;justify-content:space-between;align-items:center">
+                    <div style="font-size:14px;font-weight:700;color:var(--txt)">Payment Verification Desk</div>
+                    <div style="font-size:10px;color:var(--txt3)">Help Available</div>
+                  </div>
+                  <div style="font-size:12px;color:var(--txt2);margin-top:2px">Guides on secure transactions...</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ────────────────────────────────────
+   SCREEN 9 · CHAT DETAIL
+──────────────────────────────────────-->
+        <div class="screen" id="s-chat-detail">
+          <!-- Chat Header -->
+          <div
+            style="position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,13,13,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--surf3);padding:14px 18px;display:flex;align-items:center;justify-content:space-between">
+            <div style="display:flex;align-items:center;gap:14px">
+              <div class="hdr-box-btn" onclick="back()">←</div>
+              <div style="display:flex;align-items:center;gap:10px">
+                <div
+                  style="width:36px;height:36px;background:var(--surf2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px">
+                  👟</div>
+                <div>
+                  <div style="font-size:15px;font-weight:700;color:var(--txt);font-family:var(--fh)">Nike Central</div>
+                  <div style="font-size:11px;color:var(--green);margin-top:2px">Online</div>
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;gap:12px;font-size:20px">
+              <div onclick="toast('📞 Voice call coming soon!')"
+                style="cursor:pointer;background:rgba(255,255,255,0.05);width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background 0.2s"
+                onmousedown="this.style.background='rgba(255,255,255,0.1)'"
+                onmouseup="this.style.background='rgba(255,255,255,0.05)'">📞</div>
+              <div onclick="toast('⚙️ Chat settings...')"
+                style="cursor:pointer;background:rgba(255,255,255,0.05);width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background 0.2s"
+                onmousedown="this.style.background='rgba(255,255,255,0.1)'"
+                onmouseup="this.style.background='rgba(255,255,255,0.05)'">⚙️</div>
+            </div>
+          </div>
+
+          <!-- Chat Body -->
+          <div style="padding:80px 16px 80px;display:flex;flex-direction:column;gap:16px">
+            <div style="text-align:center;font-size:11px;color:var(--txt3);margin:10px 0">Today, 14:02</div>
+
+            <!-- Receiver Bubble -->
+            <div style="display:flex;gap:8px;max-width:85%">
+              <div
+                style="width:28px;height:28px;background:var(--surf2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0">
+                ✔️</div>
+              <div
+                style="background:var(--surf);border:1px solid var(--surf3);padding:10px 14px;border-radius:4px 16px 16px 16px;font-size:13px;color:var(--txt);line-height:1.4">
+                Hello! Welcome to Nike Central. How can we help you today?
+              </div>
+            </div>
+
+            <!-- Sender Bubble -->
+            <div style="align-self:flex-end;max-width:85%">
+              <div
+                style="background:var(--acc);padding:10px 14px;border-radius:16px 16px 4px 16px;font-size:13px;color:white;line-height:1.4;box-shadow:0 4px 15px rgba(251,91,53,0.2)">
+                Hi! Is the Air Max Solo size 10 still available?
+                <div style="font-size:9px;color:rgba(255,255,255,0.7);text-align:right;margin-top:4px">14:15 ✅</div>
+              </div>
+            </div>
+
+            <!-- Receiver Bubble -->
+            <div style="display:flex;gap:8px;max-width:85%">
+              <div
+                style="width:28px;height:28px;background:var(--surf2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0">
+                ✔️</div>
+              <div
+                style="background:var(--surf);border:1px solid var(--surf3);padding:10px 14px;border-radius:4px 16px 16px 16px;font-size:13px;color:var(--txt);line-height:1.4">
+                Yes, it is! We only have 2 pairs left in that size. Ready to ship tomorrow if you order today.
+              </div>
+            </div>
+
+            <!-- Sender Bubble -->
+            <div style="align-self:flex-end;max-width:85%">
+              <div
+                style="background:var(--acc);padding:10px 14px;border-radius:16px 16px 4px 16px;font-size:13px;color:white;line-height:1.4;box-shadow:0 4px 15px rgba(251,91,53,0.2)">
+                Perfect! Just checking out now. Is there a voucher available?
+                <div style="font-size:9px;color:rgba(255,255,255,0.7);text-align:right;margin-top:4px">14:22 ✅</div>
+              </div>
+            </div>
+
+            <!-- Receiver Bubble -->
+            <div style="display:flex;gap:8px;max-width:85%">
+              <div
+                style="width:28px;height:28px;background:var(--surf2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0">
+                ✔️</div>
+              <div
+                style="background:var(--surf);border:1px solid var(--surf3);padding:10px 14px;border-radius:4px 16px 16px 16px;font-size:13px;color:var(--txt);line-height:1.4">
+                Yes! You can use <strong>NIKE100</strong> for ₱100 off on your first order. Happy shopping!
+              </div>
+            </div>
+          </div>
+
+          <!-- Chat Input Bar -->
+          <div
+            style="position:fixed;bottom:0;left:0;right:0;background:var(--bg);border-top:1px solid var(--surf3);padding:12px 16px;display:flex;align-items:center;gap:12px;z-index:100;backdrop-filter:blur(10px)">
+            <div style="font-size:20px;color:var(--txt3);cursor:pointer">➕</div>
+            <div
+              style="flex:1;background:var(--surf);border-radius:24px;padding:8px 16px;border:1px solid var(--surf3)">
+              <input type="text" placeholder="Type a message..."
+                style="width:100%;border:none;background:transparent;outline:none;color:var(--txt);font-size:13px">
+            </div>
+            <div style="font-size:24px;color:var(--acc);cursor:pointer" onclick="toast('✉️ Message sent!')">✈️</div>
+          </div>
+        </div>
+
+        <div class="screen" id="s-notifications">
+          <div class="screen-hdr-lib">
+            <div class="hdr-back-sq" onclick="back()">←</div>
+            <div class="hdr-title-stack">
+              <div class="hdr-main-title">Notifications</div>
+              <div class="hdr-sub-info">4 items today</div>
+            </div>
+            <div class="hdr-ico-btn" onclick="toast('🧹 Clear all...')">🧹</div>
+          </div>
+          <div style="padding:16px">
+            <div
+              style="font-size:11px;color:var(--txt2);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin:12px 6px">
+              Today</div>
+
+            <div
+              style="background:var(--surf);border:1px solid var(--surf3);border-radius:14px;overflow:hidden;margin-bottom:16px">
+              <!-- Order Notif -->
+              <div style="padding:16px;display:flex;gap:14px;border-bottom:1px solid var(--surf3);cursor:pointer"
+                onclick="go('s-track')">
+                <div
+                  style="width:40px;height:40px;background:rgba(16,185,129,0.1);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">
+                  🚚</div>
+                <div style="flex:1">
+                  <div style="display:flex;justify-content:space-between;align-items:center">
+                    <div style="font-size:13px;font-weight:700;color:var(--txt)">Package Shipped!</div>
+                    <div style="font-size:10px;color:var(--txt3)">2h ago</div>
+                  </div>
+                  <div style="font-size:12px;color:var(--txt2);line-height:1.4;margin-top:2px">Order #420-X12 for
+                    <strong>Nike Air Max Solo</strong> has reached Bacolod Hub.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Promo Notif -->
+              <div style="padding:16px;display:flex;gap:14px;border-bottom:1px solid var(--surf3);cursor:pointer"
+                onclick="go('s-explore')">
+                <div
+                  style="width:40px;height:40px;background:rgba(251,91,53,0.1);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">
+                  🔥</div>
+                <div style="flex:1">
+                  <div style="display:flex;justify-content:space-between;align-items:center">
+                    <div style="font-size:13px;font-weight:700;color:var(--txt)">Flash Sale Alert!</div>
+                    <div style="font-size:10px;color:var(--txt3)">5h ago</div>
+                  </div>
+                  <div style="font-size:12px;color:var(--txt2);line-height:1.4;margin-top:2px">Grab 30% discount on
+                    <strong>Adidas Heritage</strong>. Limited stocks left!
+                  </div>
+                </div>
+              </div>
+
+              <!-- Payment Notif -->
+              <div style="padding:16px;display:flex;gap:14px;cursor:pointer"
+                onclick="toast('Opening Order Receipt...')">
+                <div
+                  style="width:40px;height:40px;background:rgba(59,130,246,0.1);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">
+                  💳</div>
+                <div style="flex:1">
+                  <div style="display:flex;justify-content:space-between;align-items:center">
+                    <div style="font-size:13px;font-weight:700;color:var(--txt)">Payment Confirmed</div>
+                    <div style="font-size:10px;color:var(--txt3)">8h ago</div>
+                  </div>
+                  <div style="font-size:12px;color:var(--txt2);line-height:1.4;margin-top:2px">Transaction for Order
+                    #420-X12 was successful. Receipt in Inbox.</div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              style="font-size:11px;color:var(--txt2);font-weight:700;text-transform:uppercase;letter-spacing:1px;margin:12px 6px">
+              Yesterday</div>
+            <div style="background:var(--surf);border:1px solid var(--surf3);border-radius:14px;overflow:hidden">
+              <div style="padding:16px;display:flex;gap:14px;opacity:0.7">
+                <div
+                  style="width:40px;height:40px;background:var(--surf2);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">
+                  🎁</div>
+                <div style="flex:1">
+                  <div style="font-size:13px;font-weight:700;color:var(--txt)">Wallet Refill Promo</div>
+                  <div style="font-size:12px;color:var(--txt2)">Get 50 Coins for refilling ₱100.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ────────────────────────────────────
+   SCREEN 11 · STORE MAP LOCATION
+──────────────────────────────────────-->
+        <div class="screen" id="s-map">
+          <!-- Translucent header -->
+          <div
+            style="position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(13,13,13,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--surf3);padding:14px 18px;display:flex;align-items:center;justify-content:space-between">
+            <div style="display:flex;align-items:center;gap:14px">
+              <div class="hdr-back-sq" onclick="back()">←</div>
+              <div style="font-family:var(--fh);font-size:20px;font-weight:800;color:var(--txt)">Store Location</div>
+            </div>
+            <div
+              style="font-size:18px;cursor:pointer;background:var(--surf2);border:1px solid var(--surf3);width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(0,0,0,0.2)"
+              onclick="toast('Searching nearby spots...')">🔍</div>
+          </div>
+
+          <!-- Leaflet.js Interactive Map — fully pannable, real anchored red marker -->
+          <div style="position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;">
+            <div id="shop-map" style="width:100%;height:100%;z-index:1;"></div>
+            <script>
+              (function initMap() {
+                if (window._shopMapInit) return;
+                window._shopMapInit = true;
+                var lat = 10.6762, lng = 122.9554;
+                var map = L.map('shop-map', {
+                  center: [lat, lng],
+                  zoom: 17,
+                  zoomControl: true,
+                  scrollWheelZoom: true,
+                  dragging: true,
+                  tap: true
+                });
+                window._shopMap = map;
+                L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+                  attribution: '&copy; <a href="https://carto.com/">CARTO</a>',
+                  subdomains: 'abcd',
+                  maxZoom: 20
+                }).addTo(map);
+                var redIcon = L.divIcon({
+                  className: '',
+                  html: '<div style="width:18px;height:18px;background:#e53935;border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:3px solid #fff;box-shadow:0 4px 16px rgba(229,57,53,0.7);"></div>',
+                  iconSize: [24, 24],
+                  iconAnchor: [9, 20],
+                  popupAnchor: [3, -18]
+                });
+                L.marker([lat, lng], { icon: redIcon })
+                  .addTo(map)
+                  .bindPopup(
+                    '<div style="font-family:sans-serif;min-width:180px;padding:4px 2px">'+
+                    '<strong style="font-size:14px;color:#e53935;display:block;margin-bottom:4px">📍 ShoeBeeDoo Hub</strong>'+
+                    '<span style="font-size:12px;color:#333;font-weight:600">123 Lacson Street</span><br>'+
+                    '<span style="font-size:12px;color:#555">Brgy. 2, Bacolod City</span><br>'+
+                    '<span style="font-size:11px;color:#888">Negros Occidental, 6100</span>'+
+                    '</div>',
+                    { maxWidth: 240, className: 'shop-popup' }
+                  )
+                  .openPopup();
+                setTimeout(function(){ map.invalidateSize(); }, 300);
+              })();
+            </script>
+          </div>
+
+            <!-- Beautiful Bottom Store Information Panel -->
+            <div
+              style="position:absolute;bottom:0;left:0;right:0;background:rgba(15,15,15,0.92);backdrop-filter:blur(24px);border-top:1px solid rgba(255,255,255,0.08);border-radius:32px 32px 0 0;padding:24px 24px 40px;box-shadow:0 -15px 50px rgba(0,0,0,0.8);z-index:10;display:flex;flex-direction:column;gap:20px">
+              <div style="width:48px;height:5px;background:rgba(255,255,255,0.15);border-radius:3px;margin:0 auto">
+              </div>
+
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-top:2px">
+                <div style="flex:1">
+                  <div
+                    style="font-family:var(--fh);font-size:26px;font-weight:900;color:var(--txt);letter-spacing:-0.5px">
+                    Shoe<span style="color:var(--acc)">Bee</span>Doo HQ</div>
+                  <div
+                    style="font-size:14px;color:rgba(255,255,255,0.65);margin-top:8px;line-height:1.5;letter-spacing:0.2px">
+                    123 Lacson Street, Bacolod City<br>Negros Occidental, 6100</div>
+                  <div
+                    style="display:inline-flex;align-items:center;gap:10px;margin-top:16px;background:rgba(255,255,255,0.06);padding:8px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)">
+                    <span
+                      style="color:var(--green);font-weight:800;font-size:13px;display:flex;align-items:center;gap:6px">
+                      <span
+                        style="width:8px;height:8px;background:var(--green);border-radius:50%;box-shadow:0 0 10px var(--green);display:inline-block"></span>Open
+                      Now
+                    </span>
+                    <span style="color:var(--txt3);font-size:10px">|</span>
+                    <span style="color:var(--txt2);font-weight:600;font-size:13px">Closes 9:00 PM</span>
+                  </div>
+                </div>
+                <div
+                  style="width:62px;height:62px;background:linear-gradient(135deg,var(--acc),#ff8262);border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 12px 24px rgba(251,91,53,0.35);border:1px solid rgba(255,255,255,0.2);cursor:pointer;transition:transform 0.2s"
+                  onclick="toast('Routing to ShoeBeeDoo...')" onmousedown="this.style.transform='scale(0.95)'"
+                  onmouseup="this.style.transform='scale(1)'">
+                  🗺️
+                </div>
+              </div>
+
+              <div style="display:flex;gap:14px;margin-top:8px">
+                <button class="btn-ghost"
+                  style="flex:1;background:rgba(255,255,255,0.06);border:1.5px solid rgba(255,255,255,0.08);border-radius:16px;padding:16px;font-size:15px;display:flex;align-items:center;justify-content:center;gap:10px;color:var(--txt)"
+                  onclick="toast('📞 Calling store...')">
+                  <span style="font-size:18px">📞</span> Call Store
+                </button>
+                <button class="btn-acc"
+                  style="flex:1;border-radius:16px;padding:16px;font-size:15px;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 8px 25px rgba(251,91,53,0.35)"
+                  onclick="go('s-messages')">
+                  <span style="font-size:18px">💬</span> Message
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- /screens -->
+
+      <!-- ══ GLOBAL BOTTOM NAV ══ -->
+      <div class="bnav" id="global-nav">
+        <div class="ni" id="ni-home" onclick="go('s-home')">
+          <div class="ni-ico">🏠</div>
+          <div class="ni-lbl">Home</div>
+        </div>
+        <div class="ni" id="ni-cart" onclick="go('s-cart')" style="position:relative">
+          <div class="ni-ico">🛒</div>
+          <div class="ni-lbl">Cart</div>
+          <div class="badge" id="global-bnav-badge" style="top:0;right:10px">0</div>
+        </div>
+        <div class="ni" id="ni-explore" onclick="go('s-explore')">
+          <div class="ni-ico">🔍</div>
+          <div class="ni-lbl">Explore</div>
+        </div>
+        <div class="ni" id="ni-orders" onclick="go('s-orders')">
+          <div class="ni-ico">📦</div>
+          <div class="ni-lbl">Orders</div>
+        </div>
+        <div class="ni" id="ni-me" onclick="go('s-me')">
+          <div class="ni-ico">👤</div>
+          <div class="ni-lbl">Me</div>
+        </div>
+      </div>
+    </div><!-- /app-container -->
+  </div><!-- /stage -->
+
+  <div class="toast" id="toast-el"><span id="toast-msg"></span></div>
+
+  <!-- ══ LOGOUT CONFIRMATION MODAL ══ -->
+  <div class="modal-overlay" id="logout-modal" onclick="toggleLogoutModal(false)">
+    <div class="modal-card" onclick="event.stopPropagation()">
+      <div class="modal-ico">🚪</div>
+      <div class="modal-title">Confirm Logout</div>
+      <div class="modal-desc">Are you sure you want to log out of your ShoeBeeDoo account?</div>
+      <div class="modal-btns">
+        <button class="modal-btn sec" onclick="toggleLogoutModal(false)">Cancel</button>
+        <button class="modal-btn prim"
+          onclick="toast('Logging out...');go('s-login');resetCart();toggleLogoutModal(false)">Log Out</button>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+
+</html>
