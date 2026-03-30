@@ -93,15 +93,16 @@
   --acc-glow: 0 0 20px rgba(251, 91, 53, 0.3)
 }
 
+html,
 body {
-  background: #020202;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  min-height: 100vh;
-  font-family: var(--fb);
+  height: 100%;
+  margin: 0;
   padding: 0;
-  overflow-x: hidden
+  overflow: hidden;
+  background: #020202;
+  font-family: var(--fb);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .stage {
@@ -111,7 +112,8 @@ body {
   width: 100%;
   max-width: 1600px;
   margin: 0 auto;
-  height: 100vh
+  height: 100%;
+  position: relative;
 }
 
 /* ─── APP CONTAINER ─── */
@@ -160,9 +162,9 @@ body {
   overflow-x: hidden;
   scrollbar-width: none;
   background: var(--bg);
-  height: 100vh;
+  height: 100%;
   -webkit-overflow-scrolling: touch;
-  padding-bottom: 74px;
+  padding-bottom: 90px;
   box-sizing: border-box;
   display: block;
 }
@@ -389,19 +391,20 @@ button:active {
 }
 
 .bnav {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(13, 13, 13, .98);
+  background: rgba(13, 13, 13, 0.98);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-top: 1px solid var(--surf3);
-  padding: 10px 0 16px;
+  padding: 8px 0 12px;
   display: none;
   justify-content: space-around;
-  z-index: 1000;
+  z-index: 2000;
   width: 100%;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .ni {
@@ -1760,8 +1763,7 @@ button:active {
 .pd-img-wrap {
   position: relative;
   background: radial-gradient(circle at top, #1a1a1a, var(--bg));
-  width: 100%;
-  aspect-ratio: 1/1;
+  height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1769,10 +1771,23 @@ button:active {
 }
 
 #pd-emoji img {
-  width: 100%;
-  height: 100%;
+  max-width: 90%;
+  max-height: 90%;
   object-fit: contain;
   filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
+  animation: floatSneaker 6s ease-in-out infinite;
+}
+
+@keyframes floatSneaker {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 .pd-emoji {
