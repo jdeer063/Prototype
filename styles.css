@@ -22,6 +22,8 @@
   flex-shrink: 0;
   color: var(--txt);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 110;
 }
 
 .hdr-back-sq:active {
@@ -169,6 +171,7 @@ body {
   opacity: 1;
   pointer-events: auto;
   transform: translateY(0);
+  z-index: 50;
 }
 
 .screen.has-fixed-footer {
@@ -221,6 +224,13 @@ button {
 [onclick]:active,
 button:active {
   filter: brightness(0.95);
+}
+
+/* Prevent logo/brand header from dimming on click */
+.brand-header [onclick]:active,
+.brand-header:active,
+.hdr-loc-val:active {
+  filter: none !important;
 }
 
 .btn-acc:active,
@@ -310,7 +320,9 @@ button:active {
   color: var(--txt);
   border: 1px solid var(--surf3);
   flex-shrink: 0;
-  transition: background .2s
+  transition: background .2s;
+  position: relative;
+  z-index: 110;
 }
 
 .back:hover {
@@ -527,8 +539,8 @@ button:active {
 .brand-header {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 4px 0
+  gap: 10px;
+  padding: 0
 }
 
 .brand-logo {
@@ -753,11 +765,11 @@ button:active {
   grid-template-areas: "loc icons" "srch srch";
   grid-template-columns: 1fr auto;
   grid-auto-rows: min-content;
-  gap: 12px 10px;
-  padding: 16px 14px 14px;
+  gap: 8px 10px;
+  padding: 12px 14px 10px;
   max-width: 1200px;
   margin: 0 auto;
-  align-items: center;
+  align-items: start;
   position: relative;
   z-index: 101;
   box-sizing: border-box
@@ -774,7 +786,8 @@ button:active {
   grid-area: icons;
   display: flex;
   align-items: center;
-  gap: 10px
+  gap: 8px;
+  padding-top: 4px
 }
 
 .web-top-nav .srch {
@@ -955,8 +968,9 @@ button:active {
 .hdr-icons {
   grid-area: icons;
   display: flex;
-  gap: 12px;
-  justify-content: flex-end
+  gap: 8px;
+  justify-content: flex-end;
+  align-items: center
 }
 
 .desktop-nav {
@@ -984,14 +998,14 @@ button:active {
 }
 
 .hdr-ico-btn {
-  width: 36px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
   background: var(--surf);
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
+  font-size: 15px;
   cursor: pointer;
   border: 1px solid var(--surf3);
   position: relative;
@@ -1746,7 +1760,8 @@ button:active {
 .pd-img-wrap {
   position: relative;
   background: radial-gradient(circle at top, #1a1a1a, var(--bg));
-  height: 400px;
+  width: 100%;
+  aspect-ratio: 1/1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1754,23 +1769,10 @@ button:active {
 }
 
 #pd-emoji img {
-  max-width: 90%;
-  max-height: 90%;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
-  animation: floatSneaker 6s ease-in-out infinite;
-}
-
-@keyframes floatSneaker {
-
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-8px);
-  }
 }
 
 .pd-emoji {
@@ -1802,7 +1804,7 @@ button:active {
   font-size: 18px;
   color: var(--txt);
   backdrop-filter: blur(10px);
-  z-index: 10;
+  z-index: 110;
   transition: all 0.2s;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
@@ -3363,6 +3365,7 @@ button:active {
 }
 
 @media(max-width:900px) {
+
   /* BULLETPROOF SIDEBAR HIDING */
   #s-home .web-layout-2col aside.web-sidebar,
   .web-sidebar,
@@ -3447,7 +3450,8 @@ button:active {
 
   .web-hero-visual {
     width: 100%;
-    height: 240px !important; /* Force contained height but larger */
+    height: 240px !important;
+    /* Force contained height but larger */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -3461,7 +3465,8 @@ button:active {
     max-width: 100% !important;
     object-fit: contain !important;
     filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4));
-    transform: scale(1.1) !important; /* Make shoe look slightly larger and more heroic */
+    transform: scale(1.1) !important;
+    /* Make shoe look slightly larger and more heroic */
   }
 
   .web-hero-title {
@@ -3479,7 +3484,8 @@ button:active {
 
   .web-hero-btns {
     width: 100%;
-    margin-top: 0; /* Reset since there's button gap */
+    margin-top: 0;
+    /* Reset since there's button gap */
     gap: 12px;
     justify-content: center;
   }
@@ -3499,14 +3505,14 @@ button:active {
     width: 60px;
     height: 60px;
     padding: 0;
-    background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(0,0,0,0.3));
-    border: 1px solid rgba(255,255,255,0.08);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0.3));
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     backdrop-filter: blur(12px);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
     margin-bottom: 8px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
