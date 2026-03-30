@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ShoeBeeDoo — Premium Footwear Store</title>
-  <link rel="icon" type="image/png" href="lebron_21_orange_v1_1774746209076.png">
+  <link rel="icon" type="image/png" href="iso_lebron_21_orange_v1_1774746209076.png">
   <link
     href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap"
     rel="stylesheet">
@@ -28,7 +28,7 @@
         <div class="screen active" id="s-login">
 
           <div class="login-logo-wrap">
-            <img src="lebron_21_orange_v1_1774746209076.png"
+            <img src="iso_lebron_21_orange_v1_1774746209076.png"
               style="width:120px;height:120px;margin-bottom:24px;border-radius:24px;" alt="Logo">
             <div class="logo-name">Shoe<span>Bee</span>Doo</div>
             <div class="logo-sub">Step into your style</div>
@@ -87,11 +87,12 @@
           <div class="web-top-nav">
             <div class="hdr-loc">
               <div class="brand-header">
-                <img src="lebron_21_orange_v1_1774746209076.png" style="width:36px;height:36px;border-radius:10px;pointer-events:none"
-                  alt="Logo">
+                <img src="iso_lebron_21_orange_v1_1774746209076.png"
+                  style="width:36px;height:36px;border-radius:10px;pointer-events:none" alt="Logo">
                 <div class="logo-name" style="font-size:21px;margin:0;margin-left:4px">Shoe<span>Bee</span>Doo</div>
               </div>
-              <div style="margin-top:4px;font-size:11px;color:var(--txt3);cursor:pointer;display:flex;align-items:center;gap:3px;transition:opacity 0.2s;user-select:none"
+              <div
+                style="margin-top:4px;font-size:11px;color:var(--txt3);cursor:pointer;display:flex;align-items:center;gap:3px;transition:opacity 0.2s;user-select:none"
                 onclick="go('s-map')" onmousedown="this.style.opacity='0.6'" onmouseup="this.style.opacity='1'">
                 📍 Bacolod City, PH <span style="color:var(--acc);font-size:9px">▼</span>
               </div>
@@ -102,11 +103,7 @@
               <div class="dnav-link" onclick="go('s-orders')">Orders</div>
               <div class="dnav-link" onclick="go('s-me')">Me</div>
             </div>
-            <div class="srch">
-              <input type="text" class="srch-input" placeholder="Search shoes, brands..." />
-              <span class="srch-scan" onclick="toast('📷 Scan to search!')">📷</span>
-              <div class="srch-btn" onclick="toast('🔍 Searching...')">🔍</div>
-            </div>
+
             <div class="hdr-icons" style="align-self:start;padding-top:2px">
               <div class="hdr-ico-btn" onclick="go('s-notifications')">🔔</div>
               <div class="hdr-ico-btn" onclick="go('s-messages')">💬</div>
@@ -210,54 +207,72 @@
             <!-- Main Col -->
             <div class="web-main">
               <!-- Deleted HERO BANNER per user request -->
-              <!-- Category icons -->
-              <div class="cat-scroll-wrap">
-                <div class="cat-grid">
-                  <div class="cat-item active-cat" id="cat-all" onclick="filterCategory('All', this)">
-                    <div class="cat-img-box"><img src="lebron_21_orange_v1_1774746209076.png" alt="All" class="cat-logo"
-                        style="object-fit:contain;padding:4px;object-position:center 65%;"></div>
-                    <div class="cat-lbl">All</div>
+              <!-- Category section wrapper -->
+              <div class="cat-section-wrap">
+                <!-- Integrated Search Bar -->
+                <div class="srch">
+                  <input type="text" class="srch-input" placeholder="Search shoes, brands..." />
+                  <span class="srch-scan" onclick="toast('📷 Scan to search!')">📷</span>
+                  <div class="srch-btn" onclick="toast('🔍 Searching...')">🔍</div>
+                </div>
+
+                <!-- Grouped Title and Categories with Background -->
+                <div class="cat-group-bg">
+                  <div class="cat-section-title">
+                    <span style="font-size:18px">✨</span> Kicks
                   </div>
-                  <div class="cat-item" id="cat-sneakers" onclick="filterCategory('Sneakers', this)">
-                    <div class="cat-img-box"><img src="nike_air_max_solo_v1_1774746144920.png" alt="Sneakers"
-                        class="cat-logo"></div>
-                    <div class="cat-lbl">Sneakers</div>
-                  </div>
-                  <div class="cat-item" id="cat-boots" onclick="filterCategory('Boots', this)">
-                    <div class="cat-img-box"><img src="assets/timberland-pro.jpg" alt="Boots" class="cat-logo"></div>
-                    <div class="cat-lbl">Boots</div>
-                  </div>
-                  <div class="cat-item" id="cat-loafers" onclick="filterCategory('Loafers', this)">
-                    <div class="cat-img-box"><img src="assets/classic-loafer.jpg" alt="Loafers" class="cat-logo"></div>
-                    <div class="cat-lbl">Loafers</div>
-                  </div>
-                  <div class="cat-item" id="cat-sandals" onclick="filterCategory('Sandals', this)">
-                    <div class="cat-img-box"><img src="assets/strappy-sandals.jpg" alt="Sandals" class="cat-logo"></div>
-                    <div class="cat-lbl">Sandals</div>
-                  </div>
-                  <div class="cat-item" id="cat-running" onclick="filterCategory('Running', this)">
-                    <div class="cat-img-box"><img src="nike_air_max_solo_v1_1774746144920.png" alt="Running"
-                        class="cat-logo"></div>
-                    <div class="cat-lbl">Running</div>
-                  </div>
-                  <div class="cat-item" id="cat-hiking" onclick="filterCategory('Hiking', this)">
-                    <div class="cat-img-box"><img src="assets/merrell-moab-3.jpg" alt="Hiking" class="cat-logo"></div>
-                    <div class="cat-lbl">Hiking</div>
-                  </div>
-                  <div class="cat-item" id="cat-clogs" onclick="filterCategory('Clogs', this)">
-                    <div class="cat-img-box"><img src="assets/classic-clog.jpg" alt="Clogs" class="cat-logo"></div>
-                    <div class="cat-lbl">Clogs</div>
-                  </div>
-                  <div class="cat-item" id="cat-flipflops" onclick="filterCategory('Flip Flops', this)">
-                    <div class="cat-img-box"><img src="assets/stilitoes.jpg" alt="Flip Flops" class="cat-logo"></div>
-                    <div class="cat-lbl">Flip Flops</div>
-                  </div>
-                  <div class="cat-item" id="cat-basketball" onclick="filterCategory('Basketball', this)">
-                    <div class="cat-img-box"><img src="assets/ball.jpg" alt="Basketball" class="cat-logo"></div>
-                    <div class="cat-lbl">Basketball</div>
+                  <div class="cat-scroll-wrap">
+                    <div class="cat-grid">
+                    <div class="cat-item active-cat" id="cat-all" onclick="filterCategory('All', this)">
+                      <div class="cat-img-box"><img src="iso_lebron_21_orange_v1_1774746209076.png" alt="All"
+                          class="cat-logo" style="object-fit:contain;padding:4px;object-position:center 65%;"></div>
+                      <div class="cat-lbl">All</div>
+                    </div>
+                    <div class="cat-item" id="cat-sneakers" onclick="filterCategory('Sneakers', this)">
+                      <div class="cat-img-box"><img src="iso_nike_air_max_solo_v1_1774746144920.png" alt="Sneakers"
+                          class="cat-logo"></div>
+                      <div class="cat-lbl">Sneakers</div>
+                    </div>
+                    <div class="cat-item" id="cat-boots" onclick="filterCategory('Boots', this)">
+                      <div class="cat-img-box"><img src="iso_timberland_pro_1774861014928.png" alt="Boots"
+                          class="cat-logo"></div>
+                      <div class="cat-lbl">Boots</div>
+                    </div>
+                    <div class="cat-item" id="cat-loafers" onclick="filterCategory('Loafers', this)">
+                      <div class="cat-img-box"><img src="iso_classic_loafer_1774860992874.png" alt="Loafers"
+                          class="cat-logo"></div>
+                      <div class="cat-lbl">Loafers</div>
+                    </div>
+                    <div class="cat-item" id="cat-sandals" onclick="filterCategory('Sandals', this)">
+                      <div class="cat-img-box"><img src="iso_strappy-sandals.png" alt="Sandals" class="cat-logo"></div>
+                      <div class="cat-lbl">Sandals</div>
+                    </div>
+                    <div class="cat-item" id="cat-running" onclick="filterCategory('Running', this)">
+                      <div class="cat-img-box"><img src="iso_nike_air_max_solo_v1_1774746144920.png" alt="Running"
+                          class="cat-logo"></div>
+                      <div class="cat-lbl">Running</div>
+                    </div>
+                    <div class="cat-item" id="cat-hiking" onclick="filterCategory('Hiking', this)">
+                      <div class="cat-img-box"><img src="iso_merrell-moab-3.png" alt="Hiking" class="cat-logo"></div>
+                      <div class="cat-lbl">Hiking</div>
+                    </div>
+                    <div class="cat-item" id="cat-clogs" onclick="filterCategory('Clogs', this)">
+                      <div class="cat-img-box"><img src="iso_classic-clog.png" alt="Clogs" class="cat-logo"></div>
+                      <div class="cat-lbl">Clogs</div>
+                    </div>
+                    <div class="cat-item" id="cat-flipflops" onclick="filterCategory('Flip Flops', this)">
+                      <div class="cat-img-box"><img src="iso_elegant_stilettos_1774861038439.png" alt="Flip Flops"
+                          class="cat-logo"></div>
+                      <div class="cat-lbl">Flip Flops</div>
+                    </div>
+                    <div class="cat-item" id="cat-basketball" onclick="filterCategory('Basketball', this)">
+                      <div class="cat-img-box"><img src="assets/ball.jpg" alt="Basketball" class="cat-logo"></div>
+                      <div class="cat-lbl">Basketball</div>
+                    </div>
                   </div>
                 </div>
               </div>
+            </div>
               <!-- Free Delivery Banner -->
               <div class="free-del-banner">
                 <div class="fdb-icon">🚴</div>
@@ -271,57 +286,59 @@
               <div class="flash-row">
                 <div class="flash-card" onclick="selItem(0);go('s-detail')">
                   <div class="flash-img" style="background:var(--surf2)">
-                    <img src="nike_air_max_solo_v1_1774746144920.png" style="width:100%;height:100%;object-fit:contain">
+                    <img src="iso_nike_air_max_solo_v1_1774746144920.png"
+                      style="width:100%;height:100%;object-fit:contain">
                     <div class="flash-disc">-10%</div>
                   </div>
                   <div class="flash-info">
                     <div class="flash-price">₱6,495</div>
                     <div class="flash-orig">₱7,200</div>
-                    <div class="flash-sold">2.1k sold</div>
                     <div class="flash-bar-wrap">
                       <div class="flash-bar" style="width:78%"></div>
+                      <div class="flash-sold-txt">2.1k sold</div>
                     </div>
                   </div>
                 </div>
                 <div class="flash-card" onclick="selItem(1);go('s-detail')">
                   <div class="flash-img" style="background:var(--surf2)">
-                    <img src="lebron_21_orange_v1_1774746209076.png" style="width:100%;height:100%;object-fit:contain">
+                    <img src="iso_lebron_21_orange_v1_1774746209076.png"
+                      style="width:100%;height:100%;object-fit:contain">
                     <div class="flash-disc">-15%</div>
                   </div>
                   <div class="flash-info">
                     <div class="flash-price">₱10,895</div>
                     <div class="flash-orig">₱12,800</div>
-                    <div class="flash-sold">3.4k sold</div>
                     <div class="flash-bar-wrap">
                       <div class="flash-bar" style="width:90%"></div>
+                      <div class="flash-sold-txt">3.4k sold</div>
                     </div>
                   </div>
                 </div>
                 <div class="flash-card" onclick="selItem(2);go('s-detail')">
                   <div class="flash-img" style="background:var(--surf2)">
-                    <img src="assets/court-vision.jpg" style="width:100%;height:100%;object-fit:contain">
+                    <img src="iso_court_vision_1774860908864.png" style="width:100%;height:100%;object-fit:contain">
                     <div class="flash-disc">-20%</div>
                   </div>
                   <div class="flash-info">
                     <div class="flash-price">₱3,295</div>
                     <div class="flash-orig">₱4,100</div>
-                    <div class="flash-sold">980 sold</div>
                     <div class="flash-bar-wrap">
                       <div class="flash-bar" style="width:55%"></div>
+                      <div class="flash-sold-txt">980 sold</div>
                     </div>
                   </div>
                 </div>
                 <div class="flash-card" onclick="selItem(6);go('s-detail')">
                   <div class="flash-img" style="background:var(--surf2)">
-                    <img src="assets/timberland-pro.jpg" style="width:100%;height:100%;object-fit:contain">
+                    <img src="iso_timberland_pro_1774861014928.png" style="width:100%;height:100%;object-fit:contain">
                     <div class="flash-disc">-20%</div>
                   </div>
                   <div class="flash-info">
                     <div class="flash-price">₱8,900</div>
                     <div class="flash-orig">₱11,000</div>
-                    <div class="flash-sold">5.2k sold</div>
                     <div class="flash-bar-wrap">
                       <div class="flash-bar" style="width:95%"></div>
+                      <div class="flash-sold-txt">5.2k sold</div>
                     </div>
                   </div>
                 </div>
@@ -381,13 +398,16 @@
                 <div class="pc" onclick="selItem(0);go('s-detail')">
                   <div class="pc-badge"><span class="tag-pill tag-hot">🔥 Hot</span></div>
                   <div class="pc-img" style="background:var(--surf2)">
-                    <img src="nike_air_max_solo_v1_1774746144920.png" style="width:100%;height:100%;object-fit:contain">
+                    <img src="iso_nike_air_max_solo_v1_1774746144920.png"
+                      style="width:100%;height:100%;object-fit:contain">
                     <div class="pc-fav" onclick="event.stopPropagation();toggleFav(this)">🤍</div>
                   </div>
                   <div class="pc-body">
                     <div class="pc-name">Air Max Solo</div>
-                    <div class="pc-shop">🏪 Nike Central <span style="color:var(--txt3)">·</span> <span
-                        class="pc-stars">★</span> 4.9</div>
+                    <div class="pc-shop">
+                      <div class="pc-shop-info">🏪 Nike Central</div>
+                      <div class="pc-stars"><span>★</span> 4.9</div>
+                    </div>
                     <div class="pc-cat-tag">Running</div>
                     <div class="pc-sold">12.4k sold</div>
                     <div class="pc-price-row">
@@ -404,13 +424,16 @@
                 <div class="pc" onclick="selItem(1);go('s-detail')">
                   <div class="pc-badge"><span class="tag-pill tag-new">✨ New</span></div>
                   <div class="pc-img" style="background:var(--surf2)">
-                    <img src="lebron_21_orange_v1_1774746209076.png" style="width:100%;height:100%;object-fit:contain">
+                    <img src="iso_lebron_21_orange_v1_1774746209076.png"
+                      style="width:100%;height:100%;object-fit:contain">
                     <div class="pc-fav" onclick="event.stopPropagation();toggleFav(this)">🤍</div>
                   </div>
                   <div class="pc-body">
                     <div class="pc-name">Lebron 21</div>
-                    <div class="pc-shop">🏪 Nike Central <span style="color:var(--txt3)">·</span> <span
-                        class="pc-stars">★</span> 4.8</div>
+                    <div class="pc-shop">
+                      <div class="pc-shop-info">🏪 Nike Central</div>
+                      <div class="pc-stars"><span>★</span> 4.8</div>
+                    </div>
                     <div class="pc-cat-tag">Basketball</div>
                     <div class="pc-sold">5.2k sold</div>
                     <div class="pc-price-row">
@@ -426,7 +449,7 @@
                 <!-- Court Vision -->
                 <div class="pc" onclick="selItem(2);go('s-detail')">
                   <div class="pc-img" style="background:var(--surf2)">
-                    <img src="assets/court-vision.jpg" style="width:100%;height:100%;object-fit:contain">
+                    <img src="iso_court_vision_1774860908864.png" style="width:100%;height:100%;object-fit:contain">
                     <div class="pc-fav" onclick="event.stopPropagation();toggleFav(this)">🤍</div>
                   </div>
                   <div class="pc-body">
@@ -449,7 +472,7 @@
                 <div class="pc" onclick="selItem(3);go('s-detail')">
                   <div class="pc-badge"><span class="tag-pill tag-free">🚚 Free Del</span></div>
                   <div class="pc-img" style="background:var(--surf2)">
-                    <img src="adidas_superstar_classic_v1_1774746288243.png"
+                    <img src="iso_adidas_superstar_classic_v1_1774746288243.png"
                       style="width:100%;height:100%;object-fit:contain">
                     <div class="pc-fav" onclick="event.stopPropagation();toggleFav(this)">🤍</div>
                   </div>
@@ -473,7 +496,8 @@
                 <div class="pc" onclick="selItem(7);go('s-detail')">
                   <div class="pc-badge"><span class="tag-pill tag-new">✨ New</span></div>
                   <div class="pc-img" style="background:var(--surf2)">
-                    <img src="assets/stilitoes.jpg" style="width:100%;height:100%;object-fit:contain">
+                    <img src="iso_elegant_stilettos_1774861038439.png"
+                      style="width:100%;height:100%;object-fit:contain">
                     <div class="pc-fav" onclick="event.stopPropagation();toggleFav(this)">🤍</div>
                   </div>
                   <div class="pc-body">
@@ -496,7 +520,7 @@
                 <div class="pc" onclick="selItem(9);go('s-detail')">
                   <div class="pc-badge"><span class="tag-pill tag-hot">🔥 Hot</span></div>
                   <div class="pc-img" style="background:var(--surf2)">
-                    <img src="assets/old-school.jpg" style="width:100%;height:100%;object-fit:contain">
+                    <img src="iso_old-school.png" style="width:100%;height:100%;object-fit:contain">
                     <div class="pc-fav" onclick="event.stopPropagation();toggleFav(this)">🤍</div>
                   </div>
                   <div class="pc-body">
@@ -518,7 +542,7 @@
                 <!-- Chuck 70 High -->
                 <div class="pc" onclick="selItem(4);go('s-detail')">
                   <div class="pc-img" style="background:var(--surf2)">
-                    <img src="assets/chuck-70.png" style="width:100%;height:100%;object-fit:contain">
+                    <img src="iso_chuck_70_1774860960404.png" style="width:100%;height:100%;object-fit:contain">
                     <div class="pc-fav" onclick="event.stopPropagation();toggleFav(this)">🤍</div>
                   </div>
                   <div class="pc-body">
@@ -540,7 +564,7 @@
                 <!-- Classic Loafer -->
                 <div class="pc" onclick="selItem(5);go('s-detail')">
                   <div class="pc-img" style="background:var(--surf2)">
-                    <img src="assets/classic-loafer.jpg" style="width:100%;height:100%;object-fit:contain">
+                    <img src="iso_classic_loafer_1774860992874.png" style="width:100%;height:100%;object-fit:contain">
                     <div class="pc-fav" onclick="event.stopPropagation();toggleFav(this)">🤍</div>
                   </div>
                   <div class="pc-body">
@@ -563,7 +587,7 @@
                 <div class="pc" onclick="selItem(6);go('s-detail')">
                   <div class="pc-badge"><span class="tag-pill tag-hot">🔥 Hot</span></div>
                   <div class="pc-img" style="background:var(--surf2)">
-                    <img src="assets/timberland-pro.jpg" style="width:100%;height:100%;object-fit:contain">
+                    <img src="iso_timberland_pro_1774861014928.png" style="width:100%;height:100%;object-fit:contain">
                     <div class="pc-fav" onclick="event.stopPropagation();toggleFav(this)">🤍</div>
                   </div>
                   <div class="pc-body">
@@ -586,7 +610,7 @@
                 <div class="pc" onclick="selItem(8);go('s-detail')">
                   <div class="pc-badge"><span class="tag-pill tag-free">🚚 Free Del</span></div>
                   <div class="pc-img" style="background:var(--surf2)">
-                    <img src="assets/strappy-sandals.jpg" style="width:100%;height:100%;object-fit:contain">
+                    <img src="iso_strappy-sandals.png" style="width:100%;height:100%;object-fit:contain">
                     <div class="pc-fav" onclick="event.stopPropagation();toggleFav(this)">🤍</div>
                   </div>
                   <div class="pc-body">
@@ -643,8 +667,8 @@
           <div class="web-top-nav">
             <div class="hdr-loc">
               <div class="brand-header">
-                <img src="lebron_21_orange_v1_1774746209076.png" style="width:36px;height:36px;border-radius:10px;pointer-events:none"
-                  alt="Logo">
+                <img src="iso_lebron_21_orange_v1_1774746209076.png"
+                  style="width:36px;height:36px;border-radius:10px;pointer-events:none" alt="Logo">
                 <div class="logo-name" style="font-size:21px;margin:0;margin-left:4px">Shoe<span>Bee</span>Doo</div>
               </div>
             </div>
@@ -1015,7 +1039,7 @@
               <div class="oc-item-row">
                 <div class="oc-item-img"
                   style="background:var(--surf2);overflow:hidden;display:flex;align-items:center;justify-content:center">
-                  <img src="nike_air_max_solo_v1_1774746144920.png"
+                  <img src="iso_nike_air_max_solo_v1_1774746144920.png"
                     style="width:100%;height:100%;object-fit:cover;border-radius:inherit">
                 </div>
                 <div class="oc-item-info">
@@ -1041,7 +1065,7 @@
               <div class="oc-item-row">
                 <div class="oc-item-img"
                   style="background:var(--surf2);overflow:hidden;display:flex;align-items:center;justify-content:center">
-                  <img src="lebron_21_orange_v1_1774746209076.png"
+                  <img src="iso_lebron_21_orange_v1_1774746209076.png"
                     style="width:100%;height:100%;object-fit:cover;border-radius:inherit">
                 </div>
                 <div class="oc-item-info">
@@ -1067,7 +1091,7 @@
               <div class="oc-item-row">
                 <div class="oc-item-img"
                   style="background:var(--surf2);overflow:hidden;display:flex;align-items:center;justify-content:center">
-                  <img src="adidas_superstar_classic_v1_1774746288243.png"
+                  <img src="iso_adidas_superstar_classic_v1_1774746288243.png"
                     style="width:100%;height:100%;object-fit:cover;border-radius:inherit">
                 </div>
                 <div class="oc-item-info">
@@ -1093,7 +1117,7 @@
               <div class="oc-item-row">
                 <div class="oc-item-img"
                   style="background:var(--surf2);overflow:hidden;display:flex;align-items:center;justify-content:center">
-                  <img src="nike_air_max_solo_v1_1774746144920.png"
+                  <img src="iso_nike_air_max_solo_v1_1774746144920.png"
                     style="width:100%;height:100%;object-fit:cover;border-radius:inherit">
                 </div>
                 <div class="oc-item-info">
@@ -1119,7 +1143,7 @@
               <div class="oc-item-row">
                 <div class="oc-item-img"
                   style="background:var(--surf2);overflow:hidden;display:flex;align-items:center;justify-content:center">
-                  <img src="assets/timberland-pro.jpg"
+                  <img src="iso_timberland_pro_1774861014928.png"
                     style="width:100%;height:100%;object-fit:cover;border-radius:inherit">
                 </div>
                 <div class="oc-item-info">
@@ -1225,7 +1249,7 @@
             <div class="rp-head">
               <div class="rp-img"
                 style="background:var(--surf2);overflow:hidden;display:flex;align-items:center;justify-content:center">
-                <img src="nike_air_max_solo_v1_1774746144920.png"
+                <img src="iso_nike_air_max_solo_v1_1774746144920.png"
                   style="width:100%;height:100%;object-fit:cover;border-radius:inherit">
               </div>
               <div class="rp-info">

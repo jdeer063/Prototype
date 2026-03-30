@@ -1,18 +1,18 @@
 // ═══════════ DATA ═══════════
 const products = [
-  { e: '👟', img: 'nike_air_max_solo_v1_1774746144920.png', name: 'Air Max Solo', shop: "Nike Central", tag: 'Running', price: 6495, orig: 7200, disc: '-10%', rat: '4.9', rev: '1.2k', sold: '12.4k', desc: 'Engineered for performance and style. Featuring the iconic Air-Sole unit for ultimate cushioning and a breathable mesh upper for all-day comfort.' },
-  { e: '🏀', img: 'lebron_21_orange_v1_1774746209076.png', name: 'Lebron 21', shop: 'Nike Central', tag: 'Basketball', price: 10895, orig: 12800, disc: '-15%', rat: '4.8', rev: '890', sold: '5.2k', desc: 'Designed for the next generation of greatness. Light, low, and locked-in—the LeBron 21 provides ultra-responsive cushioning for explosive play.' },
-  { e: '👟', img: 'assets/court-vision.jpg', name: 'Court Vision', shop: 'Nike Central', tag: 'Sneakers', price: 3295, orig: 4100, disc: '-20%', rat: '4.7', rev: '2.1k', sold: '15k', desc: 'In love with the classic look of 80s basketball? Meet the Nike Court Vision Low. A remix of a retro style with modern sustainability.' },
-  { e: '👟', img: 'adidas_superstar_classic_v1_1774746288243.png', name: 'Superstar Classic', shop: 'Adidas Heritage', tag: 'Sneakers', price: 5300, orig: 5600, disc: '-5%', rat: '4.9', rev: '1.8k', sold: '8.5k', desc: 'From court to street, the Adidas Superstar has been an icon for 50 years. Featuring the legendary shell-toe and serrated 3-Stripes.' },
-  { e: '👟', img: 'assets/chuck-70.png', name: 'Chuck 70 High', shop: 'Converse Store', tag: 'Sneakers', price: 4195, orig: 4600, disc: '-10%', rat: '4.8', rev: '980', sold: '3.1k', desc: 'The Chuck 70 mixes the best details from the 70s-era Chuck with impeccable craftsmanship and premium materials for a timeless look.' },
-  { e: '👞', img: 'assets/classic-loafer.jpg', name: 'Classic Loafer', shop: 'Aldo Men', tag: 'Loafers', price: 3500, orig: 4100, disc: '-15%', rat: '4.6', rev: '740', sold: '2.3k', desc: 'Sleek, sophisticated, and versatile. Our signature loafers are made from premium leather with a cushioned footbed for office or evening wear.' },
-  { e: '🥾', img: 'assets/timberland-pro.jpg', name: 'Timberland Pro', shop: 'Rugged Footwear', tag: 'Boots', price: 8900, orig: 11000, disc: '-20%', rat: '4.8', rev: '610', sold: '1.9k', desc: 'Built for the toughest conditions. Waterproof, shock-absorbent, and featuring the ultimate in durability and traction.' },
-  { e: '👠', img: 'assets/stilitoes.jpg', name: 'Elegant Stilettos', shop: 'Charles & Keith', tag: 'Loafers', price: 2800, orig: 3300, disc: '-15%', rat: '4.7', rev: '430', sold: '1.2k', desc: 'Make a statement at your next gala. High-gloss finish and a perfectly balanced heel for elegance without compromising on stability.' },
-  { e: '👡', img: 'assets/strappy-sandals.jpg', name: 'Strappy Sandals', shop: 'Havaianas', tag: 'Sandals', price: 1500, orig: 1700, disc: '-10%', rat: '4.5', rev: '1.2k', sold: '5.2k', desc: 'Lightweight, beach-ready, and effortlessly stylish. Features durable rubber straps and our signature cushioned sole.' },
-  { e: '👟', img: 'assets/old-school.jpg', name: 'Old Skool', shop: 'Vans Retro', tag: 'Sneakers', price: 3800, orig: 4500, disc: '-15%', rat: '4.9', rev: '890', sold: '12.4k', desc: 'The first to bare the iconic sidestripe. Suede and canvas uppers, re-enforced toe caps, and signature rubber waffle outsoles.' },
-  { e: '🥾', img: 'assets/merrell-moab-3.jpg', name: 'Merrell Moab 3', shop: 'Trail & Trek PH', tag: 'Hiking', price: 7200, orig: 8500, disc: '-15%', rat: '4.9', rev: '520', sold: '3.8k', desc: 'Legendary hiking performance. Waterproof leather upper, Vibram TC5+ outsole, and M-Select DRY technology to keep your feet dry on every trail.' },
-  { e: '👟', img: 'assets/classic-clog.jpg', name: 'Classic Clog', shop: 'Crocs PH', tag: 'Clogs', price: 1800, orig: 2200, disc: '-18%', rat: '4.6', rev: '2.3k', sold: '9.1k', desc: 'The iconic slip-on that started it all. Lightweight, odor-resistant, and available in a rainbow of colors. Your feet will thank you.' },
-  { e: '👟', img: 'shoebedoo_logo_transparent_v1_1774746100465.png', name: 'Slides Deluxe', shop: 'Havaianas', tag: 'Flip Flops', price: 650, orig: 850, disc: '-24%', rat: '4.4', rev: '1.8k', sold: '7.2k', desc: 'Premium flip flops with extra cushioning for all-day comfort at the beach, pool, or just relaxing at home.' }
+  { e: '👟', img: 'iso_nike_air_max_solo_v1_1774746144920.png', name: 'Air Max Solo', shop: "Nike Central", tag: 'Running', price: 6495, orig: 7200, disc: '-10%', rat: '4.9', rev: '1.2k', sold: '12.4k', desc: 'Engineered for performance and style. Featuring the iconic Air-Sole unit for ultimate cushioning and a breathable mesh upper for all-day comfort.' },
+  { e: '🏀', img: 'iso_lebron_21_orange_v1_1774746209076.png', name: 'Lebron 21', shop: 'Nike Central', tag: 'Basketball', price: 10895, orig: 12800, disc: '-15%', rat: '4.8', rev: '890', sold: '5.2k', desc: 'Designed for the next generation of greatness. Light, low, and locked-in—the LeBron 21 provides ultra-responsive cushioning for explosive play.' },
+  { e: '👟', img: 'iso_court-vision.png', name: 'Court Vision', shop: 'Nike Central', tag: 'Sneakers', price: 3295, orig: 4100, disc: '-20%', rat: '4.7', rev: '2.1k', sold: '15k', desc: 'In love with the classic look of 80s basketball? Meet the Nike Court Vision Low. A remix of a retro style with modern sustainability.' },
+  { e: '👟', img: 'iso_adidas_superstar_classic_v1_1774746288243.png', name: 'Superstar Classic', shop: 'Adidas Heritage', tag: 'Sneakers', price: 5300, orig: 5600, disc: '-5%', rat: '4.9', rev: '1.8k', sold: '8.5k', desc: 'From court to street, the Adidas Superstar has been an icon for 50 years. Featuring the legendary shell-toe and serrated 3-Stripes.' },
+  { e: '👟', img: 'iso_chuck_70_1774860960404.png', name: 'Chuck 70 High', shop: 'Converse Store', tag: 'Sneakers', price: 4195, orig: 4600, disc: '-10%', rat: '4.8', rev: '980', sold: '3.1k', desc: 'The Chuck 70 mixes the best details from the 70s-era Chuck with impeccable craftsmanship and premium materials for a timeless look.' },
+  { e: '👞', img: 'iso_classic_loafer_1774860992874.png', name: 'Classic Loafer', shop: 'Aldo Men', tag: 'Loafers', price: 3500, orig: 4100, disc: '-15%', rat: '4.6', rev: '740', sold: '2.3k', desc: 'Sleek, sophisticated, and versatile. Our signature loafers are made from premium leather with a cushioned footbed for office or evening wear.' },
+  { e: '🥾', img: 'iso_timberland_pro_1774861014928.png', name: 'Timberland Pro', shop: 'Rugged Footwear', tag: 'Boots', price: 8900, orig: 11000, disc: '-20%', rat: '4.8', rev: '610', sold: '1.9k', desc: 'Built for the toughest conditions. Waterproof, shock-absorbent, and featuring the ultimate in durability and traction.' },
+  { e: '👠', img: 'iso_elegant_stilettos_1774861038439.png', name: 'Elegant Stilettos', shop: 'Charles & Keith', tag: 'Loafers', price: 2800, orig: 3300, disc: '-15%', rat: '4.7', rev: '430', sold: '1.2k', desc: 'Make a statement at your next gala. High-gloss finish and a perfectly balanced heel for elegance without compromising on stability.' },
+  { e: '👡', img: 'iso_strappy-sandals.png', name: 'Strappy Sandals', shop: 'Havaianas', tag: 'Sandals', price: 1500, orig: 1700, disc: '-10%', rat: '4.5', rev: '1.2k', sold: '5.2k', desc: 'Lightweight, beach-ready, and effortlessly stylish. Features durable rubber straps and our signature cushioned sole.' },
+  { e: '👟', img: 'iso_old-school.png', name: 'Old Skool', shop: 'Vans Retro', tag: 'Sneakers', price: 3800, orig: 4500, disc: '-15%', rat: '4.9', rev: '890', sold: '12.4k', desc: 'The first to bare the iconic sidestripe. Suede and canvas uppers, re-enforced toe caps, and signature rubber waffle outsoles.' },
+  { e: '🥾', img: 'iso_merrell-moab-3.png', name: 'Merrell Moab 3', shop: 'Trail & Trek PH', tag: 'Hiking', price: 7200, orig: 8500, disc: '-15%', rat: '4.9', rev: '520', sold: '3.8k', desc: 'Legendary hiking performance. Waterproof leather upper, Vibram TC5+ outsole, and M-Select DRY technology to keep your feet dry on every trail.' },
+  { e: '👟', img: 'iso_classic-clog.png', name: 'Classic Clog', shop: 'Crocs PH', tag: 'Clogs', price: 1800, orig: 2200, disc: '-18%', rat: '4.6', rev: '2.3k', sold: '9.1k', desc: 'The iconic slip-on that started it all. Lightweight, odor-resistant, and available in a rainbow of colors. Your feet will thank you.' },
+  { e: '👟', img: 'iso_shoebedoo_logo_transparent_v1_1774746100465.png', name: 'Slides Deluxe', shop: 'Havaianas', tag: 'Flip Flops', price: 650, orig: 850, disc: '-24%', rat: '4.4', rev: '1.8k', sold: '7.2k', desc: 'Premium flip flops with extra cushioning for all-day comfort at the beach, pool, or just relaxing at home.' }
 ];
 const shops = { "Nike Central": 0, "Adidas Heritage": 1, "Converse Store": 2, "Aldo Men": 3, "Rugged Footwear": 4 };
 
@@ -192,8 +192,8 @@ function renderDetail() {
   } else {
     imgWrap.textContent = p.e;
   }
-  document.getElementById('pd-price').textContent = '₱' + p.price;
-  document.getElementById('pd-orig').textContent = '₱' + p.orig;
+  document.getElementById('pd-price').textContent = '₱' + p.price.toLocaleString();
+  document.getElementById('pd-orig').textContent = '₱' + p.orig.toLocaleString();
   document.getElementById('pd-disc').textContent = p.disc;
   document.getElementById('pd-title').textContent = p.name;
   document.getElementById('pd-rat').textContent = p.rat;
@@ -442,7 +442,7 @@ function renderExploreGrid() {
             <div class="pc-name">${p.name}</div>
             <div class="pc-shop">🏪 ${p.shop} <span style="color:var(--txt3)">·</span> <span class="pc-stars">★</span> ${p.rat}</div>
             <div class="pc-sold">${p.sold} sold</div>
-            <div class="pc-price-row"><div><div class="pc-price">₱${p.price}</div><div class="pc-orig">₱${p.orig}</div></div><button class="pc-add" onclick="event.stopPropagation();quickAdd(${i})">+</button></div>
+            <div class="pc-price-row"><div><div class="pc-price">₱${p.price.toLocaleString()}</div><div class="pc-orig">₱${p.orig.toLocaleString()}</div></div><button class="pc-add" onclick="event.stopPropagation();quickAdd(${i})">+</button></div>
           </div>
         </div>
     `;

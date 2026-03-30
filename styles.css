@@ -1020,7 +1020,7 @@ button:active {
 }
 
 .srch {
-  margin: 0 18px 12px;
+  margin: 12px 14px 18px;
   background: var(--glass);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
@@ -1030,7 +1030,9 @@ button:active {
   align-items: center;
   border: 1px solid var(--glass-border);
   transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2), inset 0 2px 5px rgba(255, 255, 255, 0.02)
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2), inset 0 2px 5px rgba(255, 255, 255, 0.02);
+  position: relative;
+  width: auto;
 }
 
 .srch:focus-within {
@@ -1344,41 +1346,100 @@ button:active {
   transform: translateY(-3px)
 }
 
+.cat-section-wrap {
+  margin: 0;
+  padding: 10px 0 0;
+  background: var(--bg);
+  border: none;
+}
+
+.cat-group-bg {
+  background: radial-gradient(circle at 50% 0%, rgba(251, 91, 53, 0.12), transparent 85%);
+  margin: 0;
+  padding: 18px 0 12px;
+  border-top: 1px solid rgba(251, 91, 53, 0.25);
+  position: relative;
+  box-shadow: none;
+}
+
+.cat-section-title {
+  font-family: var(--fh);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--txt);
+  margin: 0 18px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
 .cat-img-box {
-  width: 64px;
-  height: 64px;
-  background: var(--surf);
-  border: 1px solid var(--surf3);
-  border-radius: 18px;
+  width: 68px;
+  height: 68px;
+  background: radial-gradient(circle at 35% 35%, #ffffff, #d8d8d8);
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all .3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all .35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5), inset 0 2px 5px rgba(255, 255, 255, 0.8);
   padding: 0;
-  overflow: hidden;
+}
+
+.cat-img-box::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  height: 80%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, var(--acc) 0%, transparent 70%);
+  opacity: 0;
+  border-radius: 50%;
+  transition: opacity .4s ease;
+  z-index: 0;
+}
+
+.cat-item.active-cat .cat-img-box::before {
+  opacity: 0.2;
+}
+
+.cat-item.active-cat .cat-img-box {
+  border-color: var(--acc);
+  box-shadow: 0 8px 20px rgba(251, 91, 53, 0.4);
 }
 
 .cat-logo {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   background: transparent;
-  padding: 0;
-  transition: all .3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  padding: 12px;
+  transition: all .4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.6));
+  position: relative;
+  z-index: 2;
 }
 
 .cat-item:hover .cat-img-box {
-  background: var(--surf2);
+  background: linear-gradient(135deg, #ffffff, #e0e0e0);
 }
 
 .cat-item:hover .cat-logo,
 .cat-item.active-cat .cat-logo {
-  transform: translateY(-8px) scale(1.15);
+  transform: scale(1.15) rotate(-5deg);
 }
 
 .cat-item.active-cat .cat-lbl {
   color: var(--acc);
+  font-weight: 800;
+  text-shadow: 0 0 10px rgba(251, 91, 53, 0.3);
 }
 
 .cat-ico {
@@ -1579,15 +1640,22 @@ button:active {
 }
 
 .pc {
-  background: linear-gradient(180deg, rgba(255, 255, 255, .05), var(--surf) 40%);
-  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), var(--surf) 60%);
+  border-radius: 24px;
   overflow: hidden;
   cursor: pointer;
-  border: 1px solid rgba(251, 91, 53, .15);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   display: flex;
   flex-direction: column;
-  height: 100%;
-  position: relative
+  height: 400px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.pc:hover {
+  transform: translateY(-5px);
+  border-color: rgba(251, 91, 53, 0.3);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
 }
 
 .pc-img {
@@ -1607,9 +1675,10 @@ button:active {
 .flash-img img {
   width: 100% !important;
   height: 100% !important;
-  object-fit: cover !important;
+  object-fit: contain !important;
   object-position: center !important;
   transition: transform 0.4s ease;
+  padding: 10px;
 }
 
 .pc:hover .pc-img img {
@@ -1649,10 +1718,10 @@ button:active {
 }
 
 .pc-body {
-  padding: 12px;
+  padding: 14px;
   display: flex;
   flex-direction: column;
-  flex: 1
+  flex: 1;
 }
 
 .pc-name {
@@ -1660,23 +1729,40 @@ button:active {
   font-size: 15px;
   font-weight: 700;
   color: #fff;
-  line-height: 1.3;
-  margin-bottom: 5px;
-  letter-spacing: 0.2px
+  line-height: 1.2;
+  margin-bottom: 8px;
+  height: 36px; /* Fixed height for 2 lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .pc-shop {
   font-size: 11px;
   color: var(--txt2);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   display: flex;
   align-items: center;
-  gap: 4px
+  justify-content: space-between;
+}
+
+.pc-shop-info {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .pc-stars {
   color: var(--acc);
-  font-size: 11px
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
 }
 
 .pc-sold {
@@ -1763,7 +1849,8 @@ button:active {
 .pd-img-wrap {
   position: relative;
   background: radial-gradient(circle at top, #1a1a1a, var(--bg));
-  height: 400px;
+  width: 100%;
+  aspect-ratio: 1/1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1771,27 +1858,19 @@ button:active {
 }
 
 #pd-emoji img {
-  max-width: 90%;
-  max-height: 90%;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
-  animation: floatSneaker 6s ease-in-out infinite;
-}
-
-@keyframes floatSneaker {
-
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-8px);
-  }
+  padding: 24px;
 }
 
 .pd-emoji {
-  font-size: 110px
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 110px;
 }
 
 .pd-img-overlay {
