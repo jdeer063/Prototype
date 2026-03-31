@@ -65,7 +65,8 @@ function go(id, push = true) {
 
   // Global Nav Visibility
   const gNav = document.getElementById('global-nav');
-  const showNav = ['s-home', 's-explore', 's-cart', 's-orders', 's-me'].includes(id);
+  // Specifically hide nav on cart and checkout as they have their own sticky bars
+  const showNav = ['s-home', 's-explore', 's-orders', 's-me'].includes(id);
   if (gNav) {
     gNav.style.display = showNav ? 'flex' : 'none';
   }
@@ -248,8 +249,16 @@ function renderCart() {
   const container = document.getElementById('cart-items-container');
   updateCartBadges();
   document.getElementById('cart-item-count').textContent = cart.reduce((a, c) => a + c.qty, 0) + ' items';
-  if (cart.length === 0) { empty.style.display = 'flex'; content.style.display = 'none'; return }
-  empty.style.display = 'none'; content.style.display = 'block';
+  const footer = document.getElementById('cart-footer-bar');
+  if (cart.length === 0) {
+    empty.style.display = 'flex';
+    content.style.display = 'none';
+    if (footer) footer.style.display = 'none';
+    return;
+  }
+  empty.style.display = 'none';
+  content.style.display = 'block';
+  if (footer) footer.style.display = 'block';
   // Group by shop
   const groups = {};
   cart.forEach((c, i) => { if (!groups[c.shop]) groups[c.shop] = []; groups[c.shop].push({ ...c, idx: i }) });
@@ -266,7 +275,10 @@ function renderCart() {
           <div class="ci-name">${p.name}</div>
           <div class="ci-var">${p.tag} · Medium</div>
           <div class="ci-bottom">
-            <div class="ci-price" id="ci-price-${c.idx}">₱${(p.price * c.qty).toLocaleString()}</div>
+            <div style="display:flex;flex-direction:column;gap:1px;">
+              <div class="ci-price" style="font-size:14px;color:var(--txt)">₱${p.price.toLocaleString()}</div>
+              <div style="font-size:11px;color:var(--txt3)">Subtotal: <span style="font-weight:700;color:var(--acc)" id="ci-sub-${c.idx}">₱${(p.price * c.qty).toLocaleString()}</span></div>
+            </div>
             <div class="ci-qty-row">
               <div class="cq-btn" onclick="cqty(${c.idx},-1)">−</div>
               <div class="cq-n" id="cqn-${c.idx}">${c.qty}</div>
@@ -296,7 +308,8 @@ function cqty(idx, d) {
   cart[idx].qty = Math.max(1, cart[idx].qty + d);
   const p = products[cart[idx].id];
   document.getElementById('cqn-' + idx).textContent = cart[idx].qty;
-  document.getElementById('ci-price-' + idx).textContent = '₱' + (p.price * cart[idx].qty).toLocaleString();
+  const subEl = document.getElementById('ci-sub-' + idx);
+  if (subEl) subEl.textContent = '₱' + (p.price * cart[idx].qty).toLocaleString();
   updateCartBadges(); updateSummary();
 }
 function crem(idx) { cart.splice(idx, 1); renderCart() }
@@ -380,6 +393,14 @@ function placeOrder() {
   go('s-success');
 }
 function resetCart() { cart = []; voucherApplied = { shopee: false, shop: false }; coinsOn = false; updateCartBadges() }
+function editLocation() {
+  const newLoc = prompt("Enter your exact delivery location:", "Bacolod City");
+  if (newLoc && newLoc.trim() !== "") {
+    const el = document.getElementById('checkout-loc-val');
+    if (el) el.textContent = newLoc;
+    toast('📍 Location updated successfully!');
+  }
+}
 
 // ═══════════ ORDERS ═══════════
 function setOTab(el, id) {
