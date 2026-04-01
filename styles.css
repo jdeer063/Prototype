@@ -767,8 +767,10 @@ button:active {
 .web-top-nav {
   display: flex !important;
   flex-direction: column;
-  gap: 2px; /* Tighter vertical stack */
-  padding: 12px 10px 10px; /* Reduced side padding to widen search bar */
+  gap: 2px;
+  /* Tighter vertical stack */
+  padding: 12px 10px 10px;
+  /* Reduced side padding to widen search bar */
   background: var(--bg);
   width: 100%;
   box-sizing: border-box;
@@ -793,7 +795,8 @@ button:active {
 .web-top-nav .srch {
   width: 100% !important;
   max-width: 100% !important;
-  margin-top: 8px !important; /* Consistent gap for hierarchy */
+  margin-top: 8px !important;
+  /* Consistent gap for hierarchy */
 }
 
 .desktop-nav {
@@ -814,97 +817,50 @@ button:active {
 }
 
 @media(min-width: 900px) {
-  /* ─── WEB LAYOUT RE-ARCHITECTURE ─── */
   .web-top-nav {
-    position: sticky;
-    top: 0;
-    left: 280px; /* Offset for sidebar */
-    width: calc(100% - 280px);
-    padding: 16px 40px;
-    background: rgba(5, 5, 5, 0.8);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--surf2);
-    z-index: 1005;
-    flex-direction: row !important;
-    justify-content: space-between !important;
-    max-width: none;
-    margin: 0;
-  }
-
-  .web-sidebar {
-    display: block !important;
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 280px;
-    background: var(--bg);
-    border-right: 1px solid var(--surf2);
-    z-index: 2000;
-    padding: 30px 20px;
-    overflow-y: auto;
-  }
-
-  .web-layout-2col {
-    display: block;
-    padding-left: 280px;
-    width: 100%;
-    max-width: none;
-  }
-
-  .web-main {
-    max-width: 1200px;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px 40px;
+    gap: 30px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 20px 40px 100px;
-  }
-
-  .desktop-nav {
-    display: none !important; /* Hide in favor of sidebar */
   }
 
   .hdr-main-row {
     width: auto;
+    gap: 20px;
   }
 
   .hdr-loc-line {
-    display: none !important; /* Moved to sidebar or simplified */
-  }
-
-  .web-top-nav .srch {
-    max-width: 400px;
-    margin: 0 !important;
-  }
-
-  .bnav {
     display: none !important;
   }
 
-  /* ─── LOGIN SCREEN WEB FIX ─── */
-  #s-login {
-    display: flex !important;
+  .desktop-nav {
+    display: flex;
+    gap: 25px;
     align-items: center;
+  }
+
+  .web-top-nav .srch {
+    max-width: 450px;
+    margin: 0;
+  }
+
+  .web-layout-2col {
+    display: flex;
     justify-content: center;
-    overflow: hidden !important;
-    background: radial-gradient(circle at center, #1a0d06 0%, #050505 100%);
+    padding: 0 40px 60px;
+    align-items: start;
+    max-width: 1400px
   }
 
-  #s-login .login-logo-wrap {
-    padding: 0;
-    margin-bottom: 30px;
-    animation: none !important;
+  .web-main {
+    width: 100%;
+    max-width: 1100px
   }
 
-  #s-login .logo-box {
-    animation: none !important; /* Remove floating animation on web */
-  }
-
-  #s-login .login-body {
-    background: var(--surf);
-    padding: 40px;
-    border-radius: 24px;
-    border: 1px solid var(--glass-border);
-    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
-    max-width: 440px;
+  .bnav {
+    display: none
   }
 
   .cat-grid {
